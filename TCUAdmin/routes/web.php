@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+Route::group(['middleware' => ['web']], function() {
+    Route::post('/registrar', [
+        'uses' => 'UsuarioController@postRegistrar',
+        'as' => 'registrar'
+    ]);
+    
+    Route::get('/', function () {
+        return view('welcome');
+    });
 });

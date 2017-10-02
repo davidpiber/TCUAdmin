@@ -1,6 +1,6 @@
 <div class="col-md-6">
     <h3>Registrarse</h3>
-            <form action="#" method="post">
+            <form action="{{route('registrar')}}" method="post">
                 <div class="form-group">
                     <label for="nombre">Nombre:</label>
                     <input class="form-control" type="text" name="nombre">
@@ -46,7 +46,9 @@
                         <option value="heredia">Heredia</option>
                         <option value="san_pedro">San Pedro</option>
                     </select>
-            </div>
+                </div>
+                <button type="Submit" class="btn btn-primary">Registrar</button>
+                {{ csrf_field() }}
             </form>
         </div>
     </div>
