@@ -27,6 +27,8 @@ class UsuarioController extends Controller {
         $usuario->admin = false;
         $usuario->save();
 
+        Auth::login($usuario);
+
         return redirect()->route('principal');
 
     }
