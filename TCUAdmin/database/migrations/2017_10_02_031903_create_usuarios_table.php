@@ -21,11 +21,12 @@ class CreateUsuariosTable extends Migration
             $table->string('segundo_apellido');
             $table->string('carnet_universidad');
             $table->string('correo_universidad');
-            // este campo es el emaiil usado apra autenticacion
+            // este campo es el email usado apra autenticacion
             $table->string('email');
             $table->string('password');
             $table->string('genero');
             $table->string('sede');
+            $table->boolean('admin');
         });
     }
 

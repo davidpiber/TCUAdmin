@@ -10,5 +10,6 @@
             <label for="nombre">Password:</label>
             <input class="form-control" type="password" name="password">
         </div>
+        <button type="Submit" class="btn btn-primary">Entrar</button>
     </form>
 </div>

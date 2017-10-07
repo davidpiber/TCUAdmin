@@ -19,7 +19,7 @@ class UsuarioController extends Controller {
         $usuario->password = bcrypt($request['password']);
         $usuario->genero = $request['genero'];
         $usuario->sede = $request['sede'];
-
+        $usuario->admin = false;
         $usuario->save();
 
         return redirect()->back();
