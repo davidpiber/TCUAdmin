@@ -4,8 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\facades\Auth;
 
 class UsuarioController extends Controller {
+
+    public function getPrincipal() {
+        return view('principal');
+    }
 
     public function postRegistrar(Request $request) {
 
@@ -22,12 +27,22 @@ class UsuarioController extends Controller {
         $usuario->admin = false;
         $usuario->save();
 
-        return redirect()->back();
+        return redirect()->route('principal');
 
     }
 
     public function postLogearse(Request $request) {
-        
+
+        $email = $request['email'];
+        $password = $request['password'];
+
+        // If login is not valid redirect to login page.
+        if(!Auth::attempt(['correo_universidad' => $email, 'password' => $password])) {
+            return redirect()->back();
+        }
+        return redirect()->route('principal');
     }
+
+
 }
 

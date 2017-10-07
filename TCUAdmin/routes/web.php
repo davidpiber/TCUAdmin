@@ -22,4 +22,15 @@ Route::group(['middleware' => ['web']], function() {
     Route::get('/', function () {
         return view('welcome');
     });
+
+    Route::get('/principal', [
+        'uses' => 'UsuarioController@getPrincipal',
+        'as' => 'principal'
+    ]);
+
+    Route::post('/login', [
+        'uses' => 'UsuarioController@postLogearse',
+        'as' => 'login'
+    ]);
+
 });
