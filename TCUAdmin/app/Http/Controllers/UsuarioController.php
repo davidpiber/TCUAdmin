@@ -14,7 +14,15 @@ class UsuarioController extends Controller {
 
     private function validarRegistro(Request $request) {
         $this->validate($request, [
-            'email' => 'email|unique:usuarios'
+            'nombre' => 'required',
+            'primer_apellido' => 'required',
+            'segundo_apellido' => 'required',
+            'carnet_universidad' => 'required',
+            'correo_universidad' => 'email|unique:usuarios|required',
+            'correo_personal' => 'email|unique:usuarios|required',
+            'password' => 'required',
+            'genero' => 'required',
+            'sede' => 'required'
         ]);
     }
 
@@ -25,21 +33,22 @@ class UsuarioController extends Controller {
         $usuario->segundo_apellido = $request['segundo_apellido'];
         $usuario->carnet_universidad = $request['carnet_universidad'];
         $usuario->correo_universidad = $request['correo_universidad'];
-        $usuario->email = $request['correo_personal'];
+        $usuario->correo_personal = $request['correo_personal'];
         //Encriptamos el password :)
         $usuario->password = bcrypt($request['password']);
         $usuario->genero = $request['genero'];
         $usuario->sede = $request['sede'];
+        // Ningun nuevo usario es admin :)
         $usuario->admin = false;
 
         return $usuario;
     }
 
     public function postRegistrar(Request $request) {
-        $this->validarRegistro();
+        $this->validarRegistro($request);
         $nuevoUsuario = $this->crearUsuario($request);
         $nuevoUsuario->save();
-        Auth::login($usuario);
+        Auth::login($nuevoUsuario);
         return redirect()->route('principal');
     }
 
