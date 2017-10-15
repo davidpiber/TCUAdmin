@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label for="email">Correo Personal:</label>
-                    <input class="form-control" type="email" name="email">
+                    <input class="form-control" type="email" name="correo_personal">
                 </div>
                 <div class="form-group">
                     <label for="nombre">Password:</label>
