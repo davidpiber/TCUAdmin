@@ -36,8 +36,8 @@ class UsuarioController extends Controller {
 
     public function postRegistrar(Request $request) {
         $this->validarRegistro();
-        $this.crearUsuario($request);
-        $usuario->save();
+        $nuevoUsuario = $this.crearUsuario($request);
+        $nuevoUsuario->save();
         Auth::login($usuario);
         return redirect()->route('principal');
     }
