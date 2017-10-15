@@ -12,7 +12,7 @@ class UsuarioController extends Controller {
         return view('principal');
     }
 
-    private function validarRegistro() {
+    private function validarRegistro(Request $request) {
         $this->validate($request, [
             'email' => 'email|unique:usuarios'
         ]);
@@ -26,6 +26,7 @@ class UsuarioController extends Controller {
         $usuario->carnet_universidad = $request['carnet_universidad'];
         $usuario->correo_universidad = $request['correo_universidad'];
         $usuario->email = $request['correo_personal'];
+        //Encriptamos el password :)
         $usuario->password = bcrypt($request['password']);
         $usuario->genero = $request['genero'];
         $usuario->sede = $request['sede'];
