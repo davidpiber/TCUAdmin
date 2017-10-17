@@ -4,7 +4,7 @@
     <form action="{{ route('login') }}" method="post">
         <div class="form-group">
             <label for="correo_universidad">Correo Universidad:</label>
-            <input class="form-control" name="correo_universidad" type="email">
+            <input class="form-control" name="correo_universidad" type="email" value={{Request::old('correo_universidad')}}>
         </div>
         <div class="form-group">
             <label for="nombre">Password:</label>
