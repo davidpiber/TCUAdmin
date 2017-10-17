@@ -26,6 +26,13 @@ class UsuarioController extends Controller {
         ]);
     }
 
+    private function validarLogin(Request $request) {
+        $this->validate($request, [
+            'correo_universidad' => 'email|required',
+            'password' => 'required'
+        ]);
+    }
+
     private function crearUsuario(Request $request){
         $usuario = new Usuario();
         $usuario->nombre = $request['nombre'];
@@ -54,11 +61,13 @@ class UsuarioController extends Controller {
 
     public function postLogearse(Request $request) {
 
-        $email = $request['email'];
+        $this->validarLogin($request);
+
+        $correo_universidad = $request['email'];
         $password = $request['password'];
 
         // If login is not valid redirect to login page.
-        if(!Auth::attempt(['correo_universidad' => $email, 'password' => $password])) {
+        if(!Auth::attempt(['correo_universidad' => $correo_universidad, 'password' => $password])) {
             return redirect()->back();
         }
         return redirect()->route('principal');
