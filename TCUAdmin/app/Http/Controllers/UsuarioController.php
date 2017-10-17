@@ -63,11 +63,11 @@ class UsuarioController extends Controller {
 
         $this->validarLogin($request);
 
-        $correo_universidad = $request['email'];
+        $correo = $request['correo_universidad'];
         $password = $request['password'];
 
         // If login is not valid redirect to login page.
-        if(!Auth::attempt(['correo_universidad' => $correo_universidad, 'password' => $password])) {
+        if(!Auth::attempt(['correo_universidad' => $correo, 'password' => $password])) {
             return redirect()->back();
         }
         return redirect()->route('principal');
