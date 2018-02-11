@@ -1,3 +1,4 @@
+
 <div class="col-md-6">
     <h3>Log In</h3>
     <form action="{{ route('login') }}" method="post">
@@ -12,7 +13,6 @@
         <button type="Submit" class="btn btn-primary">Entrar</button>
         {{ csrf_field() }}
     </form>
-</div>
-<div class="container">
     <a class="btn btn-primary register-button" href="/registro" role="button">Registarse</a>
 </div>
+
