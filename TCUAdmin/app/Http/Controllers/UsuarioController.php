@@ -17,6 +17,7 @@ class UsuarioController extends Controller {
             'nombre' => 'required',
             'primer_apellido' => 'required',
             'segundo_apellido' => 'required',
+            'cedula' => 'required',
             'carnet_universidad' => 'required',
             'correo_universidad' => 'email|unique:usuarios|required',
             'correo_personal' => 'email|unique:usuarios|required',
@@ -38,6 +39,7 @@ class UsuarioController extends Controller {
         $usuario->nombre = $request['nombre'];
         $usuario->primer_apellido = $request['primer_apellido'];
         $usuario->segundo_apellido = $request['segundo_apellido'];
+        $usuario->cedula = $request['cedula'];
         $usuario->carnet_universidad = $request['carnet_universidad'];
         $usuario->correo_universidad = $request['correo_universidad'];
         $usuario->correo_personal = $request['correo_personal'];

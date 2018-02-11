@@ -19,8 +19,8 @@ class CreateUsuariosTable extends Migration
             $table->string('nombre');
             $table->string('primer_apellido');
             $table->string('segundo_apellido');
+            $table->string('cedula');
             $table->string('carnet_universidad');
-            // correo_universidad usado para autenticacion.
             $table->string('correo_universidad');
             $table->string('correo_personal');
             $table->string('password');

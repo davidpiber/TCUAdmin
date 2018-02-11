@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('title')
-    TCU Admin
-@endSection
-
 @section('content')
 @if(count($errors) > 0)
     <div class="row">
@@ -18,7 +14,8 @@
 @endif
 
 <div class="row formulario">
-    @include('includes.registro')
+@if (!Auth::check())
     @include('includes.logearse')
+@endif
 </div>
 @endSection
