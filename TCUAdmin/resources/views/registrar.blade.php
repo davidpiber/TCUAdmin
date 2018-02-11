@@ -1,3 +1,5 @@
+@extends('layouts.master')
+<div class="row formulario">
 <div class="col-md-6">
     <h3>Registrarse</h3>
             <form action="{{route('registrar')}}" method="post">
@@ -52,3 +54,4 @@
             </form>
         </div>
     </div>
+</div>

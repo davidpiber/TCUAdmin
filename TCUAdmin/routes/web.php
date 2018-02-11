@@ -14,10 +14,16 @@
 
 
 Route::group(['middleware' => ['web']], function() {
+    Route::get('/registro', [
+        'uses' => 'UsuarioController@getRegistrar',
+        'as' => 'registrar'
+    ]);
+    
     Route::post('/registrar', [
         'uses' => 'UsuarioController@postRegistrar',
         'as' => 'registrar'
     ]);
+
     
     Route::get('/', function () {
         return view('welcome');

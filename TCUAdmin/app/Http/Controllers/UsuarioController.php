@@ -12,6 +12,10 @@ class UsuarioController extends Controller {
         return view('principal');
     }
 
+    public function getRegistrar() {
+        return view('registrar');
+    }
+
     private function validarRegistro(Request $request) {
         $this->validate($request, [
             'nombre' => 'required',
