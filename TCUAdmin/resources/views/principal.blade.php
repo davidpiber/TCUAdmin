@@ -4,8 +4,7 @@
 <div class="loggedin-user container">
   Hola {{Auth::user()->nombre}}
 </div>
-@include('includes.info-estudiantes')
-
+@if(Auth::user()->admin)
 <div class="container col-md-6 contenedor-principal">
       <div class="panel panel-default">
         <div class="panel-body">
@@ -14,14 +13,24 @@
       </div>
       <div class="panel panel-default">
         <div class="panel-body">
-        Propuesta de TCU
+        Mensajes
+      </div>
+</div>
+@else
+        @include('includes.info-estudiantes')
+<div class="container col-md-6 contenedor-principal">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          Ingresar Propuesta de TCU
         </div>
       </div>
       <div class="panel panel-default">
         <div class="panel-body">
         Mensajes
-        </div>
       </div>
+</div>
+@endif
+
 
       <!-- Site footer -->
       <footer class="footer navbar-fixed-bottom">
