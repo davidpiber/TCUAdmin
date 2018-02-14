@@ -6,3 +6,11 @@
 .register-button {
     margin-top: 3px;
 }
+
+.contenedor-principal {
+    margin-top: 10px !important;
+}
+
+.loggedin-user {
+    margin-top: 70px !important;
+}
