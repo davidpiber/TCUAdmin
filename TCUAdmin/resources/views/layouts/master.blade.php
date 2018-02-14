@@ -9,8 +9,8 @@
         <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
-    @include('includes.header')
-        <div class="container">
+        <div>
+        @include('includes.header')
             @yield('content')
         </div>
         <script

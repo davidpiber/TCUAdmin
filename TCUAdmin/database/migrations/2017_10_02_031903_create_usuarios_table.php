@@ -27,6 +27,7 @@ class CreateUsuariosTable extends Migration
             $table->string('genero');
             $table->string('sede');
             $table->boolean('admin');
+            $table->rememberToken();
         });
     }
 

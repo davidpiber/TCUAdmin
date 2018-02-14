@@ -1,10 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="loggedin-user container">
-  Hola {{Auth::user()->nombre}}
-</div>
-@if(Auth::user()->admin)
+@if(Auth::user() && Auth::user()->admin)
 <div class="container col-md-6 contenedor-principal">
       <div class="panel panel-default">
         <div class="panel-body">

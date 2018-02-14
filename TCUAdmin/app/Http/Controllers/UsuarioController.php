@@ -79,6 +79,15 @@ class UsuarioController extends Controller {
         return redirect()->route('principal');
     }
 
+    public function login(Request $request) {
+        return view('login-container');
+    }
+
+    public function postLogout(Request $request) {
+        Auth::logout();
+        return redirect()->route('/');
+    }
+
 
 }
 
