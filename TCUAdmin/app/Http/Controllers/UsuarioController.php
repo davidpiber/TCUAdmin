@@ -9,6 +9,10 @@ use Illuminate\Support\facades\Auth;
 class UsuarioController extends Controller {
 
     public function getPrincipal() {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+            
         return view('principal');
     }
 
@@ -85,7 +89,7 @@ class UsuarioController extends Controller {
 
     public function postLogout(Request $request) {
         Auth::logout();
-        return redirect()->route('/');
+        return redirect()->route('login');
     }
 
 

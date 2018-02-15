@@ -25,7 +25,7 @@
                         <!-- Authentication Links -->
                         @if (!Auth::check())
                             <li><a href="/login">Login</a></li>
-                            <li><a href="/registrar">Register</a></li>
+                            <li><a href="/registrar">Registrarse</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">

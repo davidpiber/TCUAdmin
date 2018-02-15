@@ -10,7 +10,6 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'registrar'
     ]);
 
-    
     Route::get('/', function () {
         return view('welcome');
     });
