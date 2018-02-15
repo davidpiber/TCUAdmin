@@ -17,7 +17,7 @@ class UsuarioController extends Controller {
     }
 
     public function getRegistrar() {
-        return view('registrar');
+        return view('register-container');
     }
 
     private function validarRegistro(Request $request) {
