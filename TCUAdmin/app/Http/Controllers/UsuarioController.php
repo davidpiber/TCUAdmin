@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\facades\Auth;
+use Illuminate\Support\MessageBag;
 
 class UsuarioController extends Controller {
 
@@ -78,7 +79,12 @@ class UsuarioController extends Controller {
 
         // If login is not valid redirect to login page.
         if(!Auth::attempt(['correo_universidad' => $correo, 'password' => $password])) {
-            return redirect()->back();
+            $errors = new MessageBag();
+
+            // add your error messages:
+            $errors->add('user or passowrd equivovado', 'Su usuario o contrasena no es valido');
+
+            return view('login-container')->withErrors($errors);
         }
         return redirect()->route('principal');
     }

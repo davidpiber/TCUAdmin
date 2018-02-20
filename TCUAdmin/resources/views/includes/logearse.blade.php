@@ -1,5 +1,16 @@
 <div class="col-md-6">
     <h3>Log In</h3>
+    <div>
+    @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    </div>
     <form action="{{ route('login') }}" method="post">
         <div class="form-group">
             <label for="correo_universidad">Correo Universidad:</label>
