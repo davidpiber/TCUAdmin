@@ -34,4 +34,14 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'logout'
     ]);
 
+    Route::get('/ingresarPropuesta', [
+        'uses' => 'PropuestaController@getIngresarPropuesta',
+        'as' => 'ingresarPropuesta'
+    ]);
+
+    Route::post('/ingresarPropuesta', [
+        'uses' => 'PropuestaController@postIngresarPropuesta',
+        'as' => 'ingresarPropuesta'
+    ]);
+
 });

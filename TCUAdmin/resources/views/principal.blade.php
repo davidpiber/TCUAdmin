@@ -10,7 +10,11 @@
       </div>
       <div class="panel panel-default">
         <div class="panel-body">
-        Mensajes
+          Mensajes
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          Reportes
       </div>
 </div>
 @else
@@ -18,17 +22,15 @@
 <div class="container col-md-6 contenedor-principal">
       <div class="panel panel-default">
         <div class="panel-body">
-          Ingresar Propuesta de TCU
+        <a class="btn btn-primary register-button" href="/ingresarPropuesta" role="button">Ingresar Propuesta de TCU</a>
         </div>
       </div>
       <div class="panel panel-default">
         <div class="panel-body">
-        Mensajes
+        <a class="btn btn-primary register-button" href="/mensajes/{{Auth::user()->id}}" role="button">Mensajes</a>
       </div>
 </div>
 @endif
-
-
       <!-- Site footer -->
       <footer class="footer navbar-fixed-bottom">
         <p>Universidad latina de Costa Rica</p>
