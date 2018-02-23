@@ -27,7 +27,7 @@ class PropuestaController extends Controller
             'pertenencia_solucion' => 'required|max:255',
             'resultados_esperados' => 'required|max:255',
             'cronograma' => 'required|max:255',
-            'tipo_propuesta' => 'required|max:255',
+            'preaprobada' => 'required|max:255',
             'id_usuario' => 'required|max:255',
         ]);
     }
@@ -43,7 +43,7 @@ class PropuestaController extends Controller
         $propuesta->pertenencia_solucion = $request['pertenencia_solucion'];
         $propuesta->resultados_esperados = $request['resultados_esperados'];
         $propuesta->cronograma = $request['cronograma'];
-        $propuesta->tipo_propuesta = $request['tipo_propuesta'];
+        $propuesta->preaprobada = $request['preaprobada'] == 'true' ? true : false;
         $propuesta->id_usuario = $request['id_usuario'];
         $propuesta->activa = false;
 

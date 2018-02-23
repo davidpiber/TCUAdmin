@@ -25,7 +25,7 @@ class Propuestas extends Migration
             $table->string('pertenencia_solucion');
             $table->string('resultados_esperados');
             $table->string('cronograma');
-            $table->string('tipo_propuesta');
+            $table->boolean('preaprobada');
             $table->integer('id_usuario')->unsigned();
             $table->foreign('id_usuario')->references('id')->on('usuarios');
             $table->boolean('activa');

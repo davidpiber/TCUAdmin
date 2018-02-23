@@ -49,10 +49,10 @@
             <textarea class="form-control" rows="5" maxlength="255" name="cronograma" value={{Request::old('cronograma')}}></textarea>
         </div>
         <div class="form-group">
-            <label for="tipo_propuesta">Tipo Propuesta:</label>
-            <select name="tipo_propuesta" class="form-control">
-                <option value="preaprobada">Preaprobada</option>
-                <option value="empresa">Empresa</option>
+            <label for="preaprobada">Tipo Propuesta:</label>
+            <select name="preaprobada" class="form-control">
+                <option value="true">Preaprobada</option>
+                <option value="false">Empresa</option>
             </select>
         </div>
         <input name="id_usuario" type="hidden" value="{{Auth::user()->id}}">
