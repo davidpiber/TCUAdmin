@@ -13,7 +13,7 @@ class PropuestaController extends Controller
         if (!Auth::check()){
             return view('welcome');
         }
-        return view('contenedor-propuesta');
+        return view('contenedor-registro-propuesta');
     }
 
     private function validarRegistroPropuesta(Request $request) {
@@ -54,7 +54,17 @@ class PropuestaController extends Controller
         $this->validarRegistroPropuesta($request);
         $nuevaPropuesta = $this->crearPropuesta($request);
         $nuevaPropuesta->save();
-        return redirect()->route('principal');
+        return redirect()->route('institucionPropuesta');
+    }
+
+    public function getInstitucionPropuesta(Request $request) {
+        
+        $propuesta = Propuesta::where('id_usuario', '=', Auth::user()->id)->latest()->first();
+        if($propuesta && $propuesta->preaprobada) {
+            return view('contenedor-propuesta-preaprobada');
+        }
+        return view('contenedor-propuesta-empresa');
+
     }
 
 

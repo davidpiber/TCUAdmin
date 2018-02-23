@@ -44,4 +44,9 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'ingresarPropuesta'
     ]);
 
+    Route::get('/institucionPropuesta', [
+        'uses' => 'PropuestaController@getInstitucionPropuesta',
+        'as' => 'institucionPropuesta'
+    ]);
+
 });
