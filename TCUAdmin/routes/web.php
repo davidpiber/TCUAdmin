@@ -69,7 +69,7 @@ Route::group(['middleware' => ['web']], function() {
     ]);
 
     Route::post('/ingresarProyectoPreaprobado', [
-        'uses' => 'EmpresaController@postIngresarProyectoPreaprobado',
+        'uses' => 'ProyectoPreaprobadoController@postIngresarProyectoPreaprobado',
         'as' => 'ingresarProyectoPreaprobado'
     ]);
 

@@ -14,11 +14,11 @@
     <form action="{{route('ingresarProyectoPreaprobado')}}" method="post">
         <div class="form-group">
             <label for="nombre_proyecto">Nombre Proyecto:</label>
-            <input class="form-control" type="text" name="nombre_empresa" value={{Request::old('nombre_proyecto')}}>
+            <input class="form-control" type="text" name="nombre_proyecto" value={{Request::old('nombre_proyecto')}}>
         </div>
         <div class="form-group">
-            <label for="descripcion">Descripción del Proyecto:</label>
-            <textarea class="form-control" rows="5" maxlength="255" name="descripcion" value={{Request::old('descripcion')}}></textarea>
+            <label for="descripcion_proyecto">Descripción del Proyecto:</label>
+            <textarea class="form-control" rows="5" maxlength="255" name="descripcion_proyecto" value={{Request::old('descripcion_proyecto')}}></textarea>
         </div>
         <div class="form-group">
             <label for="activo">Estado Proyecto:</label>
