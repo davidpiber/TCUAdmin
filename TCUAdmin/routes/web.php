@@ -49,4 +49,9 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'institucionPropuesta'
     ]);
 
+    Route::post('/ingresarEmpresa', [
+        'uses' => 'EmpresaController@postIngresarEmpresa',
+        'as' => 'ingresarEmpresa'
+    ]);
+
 });

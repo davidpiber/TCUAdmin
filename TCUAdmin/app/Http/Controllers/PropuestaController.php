@@ -9,6 +9,7 @@ use Illuminate\Support\MessageBag;
 
 class PropuestaController extends Controller
 {
+
     public function getIngresarPropuesta() {
         if (!Auth::check()){
             return view('welcome');
@@ -58,6 +59,9 @@ class PropuestaController extends Controller
     }
 
     public function getInstitucionPropuesta(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
         
         $propuesta = Propuesta::where('id_usuario', '=', Auth::user()->id)->latest()->first();
         if($propuesta && $propuesta->preaprobada) {

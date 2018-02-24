@@ -1,1 +1,5 @@
-<h1>Propuesta Empresa</h1>
+@extends('layouts.master')
+
+@section('content')
+    @include('includes.ingresarEmpresa')
+@endSection

@@ -5,16 +5,12 @@
 <div class="container col-md-6 contenedor-principal">
       <div class="panel panel-default">
         <div class="panel-body">
-          Estudiantes
+          <a class="btn btn-primary register-button" href="/mensajes" role="button">Estudiantes</a>
+          <a class="btn btn-primary register-button" href="/reportes" role="button">Reportes</a>
+          <a class="btn btn-primary register-button" href="/mensajes/{{Auth::user()->id}}" role="button">Mensajes</a>
+          <a class="btn btn-primary register-button" href="/mensajes/{{Auth::user()->id}}" role="button">Aprobar Propuestas Estudiantes</a>
+          <a class="btn btn-primary register-button" href="/ingresarProyectoPreaprobado" role="button">Ingresar Propuesta Preaprobada</a><br/>
         </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-body">
-          Mensajes
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-body">
-          Reportes
       </div>
 </div>
 @else
