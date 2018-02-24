@@ -1,5 +1,8 @@
 <?php
 Route::group(['middleware' => ['web']], function() {
+
+    //Usuarios
+
     Route::get('/registrar', [
         'uses' => 'UsuarioController@getRegistrar',
         'as' => 'registrar'
@@ -34,6 +37,8 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'logout'
     ]);
 
+    // Propuestas Estudiantes
+
     Route::get('/ingresarPropuesta', [
         'uses' => 'PropuestaController@getIngresarPropuesta',
         'as' => 'ingresarPropuesta'
@@ -49,9 +54,23 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'institucionPropuesta'
     ]);
 
+    // Empresas
+
     Route::post('/ingresarEmpresa', [
         'uses' => 'EmpresaController@postIngresarEmpresa',
         'as' => 'ingresarEmpresa'
+    ]);
+
+    // Proyectos preaprobados
+
+    Route::get('/ingresarProyectoPreaprobado', [
+        'uses' => 'ProyectoPreaprobadoController@getIngresarProyectoPreaprobado',
+        'as' => 'ingresarProyectoPreaprobado'
+    ]);
+
+    Route::post('/ingresarProyectoPreaprobado', [
+        'uses' => 'EmpresaController@postIngresarProyectoPreaprobado',
+        'as' => 'ingresarProyectoPreaprobado'
     ]);
 
 });

@@ -44,7 +44,8 @@ class PropuestaController extends Controller
         $propuesta->pertenencia_solucion = $request['pertenencia_solucion'];
         $propuesta->resultados_esperados = $request['resultados_esperados'];
         $propuesta->cronograma = $request['cronograma'];
-        $propuesta->preaprobada = $request['preaprobada'] == 'true' ? true : false;
+        $preaprobada = $request['preaprobada'];
+        $propuesta->preaprobada = $preaprobada && $preaprobada == 'true' ? true : false;
         $propuesta->id_usuario = $request['id_usuario'];
         $propuesta->activa = false;
 
