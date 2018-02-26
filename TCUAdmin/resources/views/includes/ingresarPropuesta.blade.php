@@ -48,13 +48,6 @@
             <label for="cronograma">Cronograma:</label>
             <textarea class="form-control" rows="5" maxlength="255" name="cronograma" value={{Request::old('cronograma')}}></textarea>
         </div>
-        <div class="form-group">
-            <label for="preaprobada">Tipo Propuesta:</label>
-            <select name="preaprobada" class="form-control">
-                <option value="true">Preaprobada</option>
-                <option value="false">Empresa</option>
-            </select>
-        </div>
         <input name="id_usuario" type="hidden" value="{{Auth::user()->id}}">
         <button type="Submit" class="btn btn-primary">Registrar Propuesta</button>
         {{ csrf_field() }}

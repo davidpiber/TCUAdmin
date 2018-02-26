@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Propuestas extends Migration
+class CrearUsuarioHorario extends Migration
 {
     /**
      * Run the migrations.
@@ -13,23 +13,15 @@ class Propuestas extends Migration
      */
     public function up()
     {
-        Schema::create('propuestas', function (Blueprint $table) {
+        Schema::create('usuario_horarios', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('titulo');
-            $table->string('justificacion');
-            $table->string('descripcion_beneficiarios');
-            $table->string('objetivo_general');
-            $table->string('estrategia_trabajo');
-            $table->string('recursos_necesarios');
-            $table->string('pertenencia_solucion');
-            $table->string('resultados_esperados');
-            $table->string('cronograma');
+            $table->integer('id_horario')->unsigned();
+            $table->foreign('id_horario')->references('id')->on('horarios');
             $table->integer('id_usuario')->unsigned();
             $table->foreign('id_usuario')->references('id')->on('usuarios');
-            $table->boolean('activa');
             $table->rememberToken();
-        });
+        });      
     }
 
     /**
@@ -39,6 +31,6 @@ class Propuestas extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('usuario_horarios');
     }
 }

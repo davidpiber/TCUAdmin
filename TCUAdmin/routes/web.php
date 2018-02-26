@@ -39,6 +39,16 @@ Route::group(['middleware' => ['web']], function() {
 
     // Propuestas Estudiantes
 
+    Route::get('/tipoPropuesta', [
+        'uses' => 'PropuestaController@getTipoPropuesta',
+        'as' => 'tipoPropuesta'
+    ]);
+
+    Route::post('/tipoPropuesta', [
+        'uses' => 'PropuestaController@postTipoPropuesta',
+        'as' => 'tipoPropuesta'
+    ]);
+
     Route::get('/ingresarPropuesta', [
         'uses' => 'PropuestaController@getIngresarPropuesta',
         'as' => 'ingresarPropuesta'
@@ -49,12 +59,12 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'ingresarPropuesta'
     ]);
 
-    Route::get('/institucionPropuesta', [
-        'uses' => 'PropuestaController@getInstitucionPropuesta',
-        'as' => 'institucionPropuesta'
-    ]);
-
     // Empresas
+
+    Route::get('/ingresarEmpresa', [
+        'uses' => 'EmpresaController@getIngresarEmpresa',
+        'as' => 'ingresarEmpresa'
+    ]);
 
     Route::post('/ingresarEmpresa', [
         'uses' => 'EmpresaController@postIngresarEmpresa',

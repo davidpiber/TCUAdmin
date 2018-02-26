@@ -46,4 +46,11 @@ class EmpresaController extends Controller
         return redirect()->route('principal');
     }
 
+    public function getIngresarEmpresa(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        return view('contenedor-propuesta-empresa');
+    }
+
 }

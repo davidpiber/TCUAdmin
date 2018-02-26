@@ -18,7 +18,7 @@
 <div class="container col-md-6 contenedor-principal">
       <div class="panel panel-default">
         <div class="panel-body">
-        <a class="btn btn-primary register-button" href="/ingresarPropuesta" role="button">Ingresar Propuesta de TCU</a>
+        <a class="btn btn-primary register-button" href="/tipoPropuesta" role="button">Ingresar Propuesta de TCU</a>
         </div>
       </div>
       <div class="panel panel-default">

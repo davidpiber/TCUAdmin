@@ -28,8 +28,7 @@ class PropuestaController extends Controller
             'pertenencia_solucion' => 'required|max:255',
             'resultados_esperados' => 'required|max:255',
             'cronograma' => 'required|max:255',
-            'preaprobada' => 'required|max:255',
-            'id_usuario' => 'required|max:255',
+            'id_usuario' => 'required|max:255'
         ]);
     }
 
@@ -44,8 +43,6 @@ class PropuestaController extends Controller
         $propuesta->pertenencia_solucion = $request['pertenencia_solucion'];
         $propuesta->resultados_esperados = $request['resultados_esperados'];
         $propuesta->cronograma = $request['cronograma'];
-        $preaprobada = $request['preaprobada'];
-        $propuesta->preaprobada = $preaprobada && $preaprobada == 'true' ? true : false;
         $propuesta->id_usuario = $request['id_usuario'];
         $propuesta->activa = false;
 
@@ -56,21 +53,27 @@ class PropuestaController extends Controller
         $this->validarRegistroPropuesta($request);
         $nuevaPropuesta = $this->crearPropuesta($request);
         $nuevaPropuesta->save();
-        return redirect()->route('institucionPropuesta');
+        return redirect()->route('ingresarEmpresa');
     }
 
-    public function getInstitucionPropuesta(Request $request) {
+    public function getTipoPropuesta(Request $request){
         if (!Auth::check()){
             return view('welcome');
         }
+        return view('contenedor-tipo-propuesta');
         
-        $propuesta = Propuesta::where('id_usuario', '=', Auth::user()->id)->latest()->first();
-        if($propuesta && $propuesta->preaprobada) {
-            return view('contenedor-propuesta-preaprobada');
-        }
-        return view('contenedor-propuesta-empresa');
-
     }
 
+    public function postTipoPropuesta(Request $request){
+        if (!Auth::check()){
+            return view('welcome');
+        }
 
+        if($request['preaprobada'] == 'true'){
+            return view('contenedor-propuesta-preaprobada');
+        }
+
+        return redirect()->route('ingresarPropuesta');
+        
+    }
 }

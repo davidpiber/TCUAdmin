@@ -1,5 +1,5 @@
 <div class="col-md-6">
-    <h3>Registrar Empresa</h3>
+    <h3>Ingrese los Datos de la Empresa</h3>
     <div>
         @if (count($errors) > 0)
             <div class="alert alert-danger">
