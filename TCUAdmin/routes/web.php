@@ -1,4 +1,5 @@
 <?php
+use App\ProyectoPreaprobado;
 Route::group(['middleware' => ['web']], function() {
 
     //Usuarios
@@ -87,5 +88,9 @@ Route::group(['middleware' => ['web']], function() {
         'uses' => 'ProyectoPreaprobadoController@getIngresarHorarios',
         'as' => 'ingresarHorarios'
     ]);
+
+    Route::get('/proyectos', function (Request $request) {
+        return datatables()->of(ProyectoPreaprobado::query())->toJson();
+    });
 
 });

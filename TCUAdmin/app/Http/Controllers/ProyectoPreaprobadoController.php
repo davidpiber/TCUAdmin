@@ -45,8 +45,9 @@ class ProyectoPreaprobadoController extends Controller
         if (!Auth::check()){
             return view('welcome');
         }
-        $proyectos = ProyectoPreaprobado::all();
-        return view('contenedor-ingresar-horarios', compact('proyectos'));
+        // $proyectos = ProyectoPreaprobado::all();
+        // return view('contenedor-ingresar-horarios', compact('proyectos'));
+        return view('contenedor-ingresar-horarios');
     }
 
 }

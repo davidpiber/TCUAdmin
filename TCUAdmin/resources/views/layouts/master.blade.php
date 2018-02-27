@@ -19,7 +19,17 @@
         <script src="{{ URL::asset('js/dataTables.js') }}"></script>
         <script>
             $(document).ready(function(){
-                $('#propuestas').DataTable();
+                $('#propuestas').DataTable({
+                    "processing": true,
+                    "serverSide": true,
+                    "ajax": "/proyectos",
+                    "columns": [
+                        { data: 'id'},
+                        { data: 'nombre_proyecto' },
+                        { data: 'descripcion_proyecto' },
+                        { data: 'activo' }
+                    ]
+                });
             });
         </script>
     </body>
