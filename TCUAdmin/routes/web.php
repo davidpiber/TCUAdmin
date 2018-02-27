@@ -83,4 +83,9 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'ingresarProyectoPreaprobado'
     ]);
 
+    Route::get('/ingresarHorarios', [
+        'uses' => 'ProyectoPreaprobadoController@getIngresarHorarios',
+        'as' => 'ingresarHorarios'
+    ]);
+
 });

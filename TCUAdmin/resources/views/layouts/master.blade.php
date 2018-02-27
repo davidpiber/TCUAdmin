@@ -17,5 +17,10 @@
         <script src="{{ URL::asset('js/jquery.js') }}"></script>
         <script src="{{ URL::asset('js/bootstrap.js') }}"></script>
         <script src="{{ URL::asset('js/dataTables.js') }}"></script>
+        <script>
+            $(document).ready(function(){
+                $('#propuestas').DataTable();
+            });
+        </script>
     </body>
 </html>

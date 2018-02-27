@@ -23,3 +23,14 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\ProyectoPreaprobado::class, function (Faker $faker) {
+
+    return [
+        'nombre_proyecto' => $faker->name,
+        'descripcion_proyecto' => $faker->text,
+        'activo' => $faker->boolean,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime
+    ];
+});

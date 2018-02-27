@@ -13,10 +13,9 @@ class CrearHorarios extends Migration
      */
     public function up()
     {
-        Schema::create('horarios', function (Blueprint $table) {
+        Schema::create('horario', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('horario');
             $table->integer('cantidad_instructores');
             $table->integer('id_propuesta')->unsigned();
             $table->foreign('id_propuesta')->references('id')->on('proyecto_preaprobados');
@@ -31,6 +30,6 @@ class CrearHorarios extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('horarios');
+        Schema::dropIfExists('horario');
     }
 }
