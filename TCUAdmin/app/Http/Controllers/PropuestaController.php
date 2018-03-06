@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Propuesta;
+use App\ProyectoPreaprobado;
 use Illuminate\Http\Request;
 use Illuminate\Support\facades\Auth;
 use Illuminate\Support\MessageBag;
@@ -70,7 +71,9 @@ class PropuestaController extends Controller
         }
 
         if($request['preaprobada'] == 'true'){
-            return view('contenedor-propuesta-preaprobada');
+            $proyectosPreaprobados = ProyectoPreaprobado::all();
+
+            return view('contenedor-propuesta-preaprobada')->with('proyectosPreaprobados', $proyectosPreaprobados);
         }
 
         return redirect()->route('ingresarPropuesta');
