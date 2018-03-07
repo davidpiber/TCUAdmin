@@ -17,7 +17,7 @@ class CrearUsuarioHorario extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('id_horario')->unsigned();
-            $table->foreign('id_horario')->references('id')->on('horario');
+            $table->foreign('id_horario')->references('id')->on('horarios');
             $table->integer('id_usuario')->unsigned();
             $table->foreign('id_usuario')->references('id')->on('usuarios');
             $table->rememberToken();

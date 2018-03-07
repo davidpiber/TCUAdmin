@@ -93,4 +93,16 @@ Route::group(['middleware' => ['web']], function() {
         return datatables()->of(ProyectoPreaprobado::query())->toJson();
     });
 
+    // Horarios
+
+    Route::post('/ingresarHorario', [
+        'uses' => 'HorarioController@postIngresarHorario',
+        'as' => 'ingresarHorario'
+    ]);
+
+    Route::post('/registrarHorario', [
+        'uses' => 'HorarioController@postRegistrarHorario',
+        'as' => 'registrarHorario'
+    ]);
+
 });

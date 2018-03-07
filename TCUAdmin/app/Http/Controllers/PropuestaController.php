@@ -51,6 +51,9 @@ class PropuestaController extends Controller
     }
 
     public function postIngresarPropuesta(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
         $this->validarRegistroPropuesta($request);
         $nuevaPropuesta = $this->crearPropuesta($request);
         $nuevaPropuesta->save();

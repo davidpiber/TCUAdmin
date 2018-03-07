@@ -23,16 +23,16 @@ class UsuarioController extends Controller {
 
     private function validarRegistro(Request $request) {
         $this->validate($request, [
-            'nombre' => 'required',
-            'primer_apellido' => 'required',
-            'segundo_apellido' => 'required',
-            'cedula' => 'required',
-            'carnet_universidad' => 'required',
-            'correo_universidad' => 'email|unique:usuarios|required',
-            'correo_personal' => 'email|unique:usuarios|required',
-            'password' => 'required',
-            'genero' => 'required',
-            'sede' => 'required'
+            'nombre' => 'required|max:255',
+            'primer_apellido' => 'required|max:255',
+            'segundo_apellido' => 'required|max:255',
+            'cedula' => 'required|max:255',
+            'carnet_universidad' => 'required|max:255',
+            'correo_universidad' => 'email|unique:usuarios|required|max:255',
+            'correo_personal' => 'email|unique:usuarios|required|max:255',
+            'password' => 'required|max:255',
+            'genero' => 'required|max:255',
+            'sede' => 'required|max:255'
         ]);
     }
 
