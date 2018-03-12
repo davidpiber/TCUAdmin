@@ -53,7 +53,11 @@ class HorarioController extends Controller
             return view('welcome');
         }
         $horarios = Horario::all();
-        // dd($horarios);
+        $horariosConproyecto;
+        foreach ($horarios as $horario) {
+            $horario->proyecto = ProyectoPreaprobado::where('id', '=', $horario->id_proyecto)->first();
+        }
+         //dd($horarios->proyecto->nombre_proyecto);
 
         return view('contenedor-horarios')->with('horarios', $horarios);
     }

@@ -110,6 +110,16 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'registrarHorario'
     ]);
 
+    Route::post('/editarHorario', [
+        'uses' => 'HorarioController@postEditarHorario',
+        'as' => 'editarHorario'
+    ]);
+
+    Route::post('/eliminarHorario', [
+        'uses' => 'HorarioController@postEliminarHorario',
+        'as' => 'eliminarHorario'
+    ]);
+
     Route::get('/horarios', [
         'uses' => 'HorarioController@getHorarios',
         'as' => 'horarios'
