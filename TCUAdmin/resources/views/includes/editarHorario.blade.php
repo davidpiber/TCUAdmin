@@ -11,7 +11,7 @@
                 </div>
             </div>
         @endif
-            <form action="{{route('guardarHorario')}}" method="patch">
+            <form action="{{route('guardarHorario')}}" method="post">
                 <div class="form-group">
                     <label for="horario">Horario:</label>
                     <input class="form-control" type="text" maxlength="255" name="horario" value="{{$horario->horario}}">

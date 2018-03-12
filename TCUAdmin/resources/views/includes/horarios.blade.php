@@ -18,11 +18,7 @@
                         <td>{{$horario->cantidad_instructores}}</td>
                         <td>{{$horario->horario}}</td>
                         <td>
-                                <form action="{{ route('editarHorario') }}" method="post">
-                                        <button type="submit" class="btn btn-warning">Editar Horario</button>
-                                        <input name="id_horario" type="hidden" value="{{$horario->id}}">
-                                        {{ csrf_field() }}
-                                </form>
+                        <a class="btn btn-warning" href="/editarHorario/{{$horario->id}}" role="button">Editar Horario</a>
                         </td>
                         <td>
                                 <form action="{{ route('eliminarHorario') }}" method="post">

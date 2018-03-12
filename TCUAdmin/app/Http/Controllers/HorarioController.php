@@ -56,11 +56,11 @@ class HorarioController extends Controller
         return redirect()->route('principal');
     }
 
-    public function postEditarHorario(Request $request) {
+    public function EditarHorario(Request $request) {
         if (!Auth::check()){
             return view('welcome');
         }
-        $horario = Horario::where('id', '=', $request['id_horario'])->first();
+        $horario = Horario::where('id', '=', $request['id'])->first();
         $proyecto = ProyectoPreaprobado::where('id', '=', $horario->id_proyecto)->first();
         return view('contenedor-editar-horario')->with('horario', $horario)->with('proyecto', $proyecto);
 
