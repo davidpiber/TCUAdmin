@@ -48,4 +48,14 @@ class HorarioController extends Controller
         return redirect()->route('principal');
     }
 
+    public function getHorarios(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        $horarios = Horario::all();
+        // dd($horarios);
+
+        return view('contenedor-horarios')->with('horarios', $horarios);
+    }
+
 }

@@ -47,7 +47,7 @@ class ProyectoPreaprobadoController extends Controller
         }
         $proyectos = ProyectoPreaprobado::all();
 
-        return view('contenedor-horarios')->with('proyectos', $proyectos);
+        return view('contenedor-registrar-horarios')->with('proyectos', $proyectos);
         //return view('contenedor-ingresar-horarios'); js data tables example
     }
 

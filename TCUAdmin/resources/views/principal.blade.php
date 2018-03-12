@@ -11,6 +11,7 @@
           <a class="btn btn-primary register-button" href="/mensajes/{{Auth::user()->id}}" role="button">Aprobar Propuestas Estudiantes</a>
           <a class="btn btn-primary register-button" href="/ingresarProyectoPreaprobado" role="button">Ingresar Proyecto Preaprobado</a><br/>
           <a class="btn btn-primary register-button" href="/ingresarHorarios" role="button">Ingresar Horarios</a><br/>
+          <a class="btn btn-primary register-button" href="/horarios" role="button">Horarios</a><br/>
         </div>
       </div>
 </div>
