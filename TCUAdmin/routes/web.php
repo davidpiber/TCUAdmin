@@ -100,8 +100,8 @@ Route::group(['middleware' => ['web']], function() {
 
     // Horarios
 
-    Route::post('/ingresarHorario', [
-        'uses' => 'HorarioController@postIngresarHorario',
+    Route::get('/ingresarHorario/{id_proyecto}', [
+        'uses' => 'HorarioController@IngresarHorario',
         'as' => 'ingresarHorario'
     ]);
 

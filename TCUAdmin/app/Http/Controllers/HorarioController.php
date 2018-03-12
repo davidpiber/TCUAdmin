@@ -36,7 +36,7 @@ class HorarioController extends Controller
         return $horario;
     }
 
-    public function postIngresarHorario(Request $request) {
+    public function IngresarHorario(Request $request) {
         if (!Auth::check()){
             return view('welcome');
         }

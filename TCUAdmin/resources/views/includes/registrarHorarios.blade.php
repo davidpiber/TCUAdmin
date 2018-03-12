@@ -15,11 +15,7 @@
                         <td>{{$proyecto->nombre_proyecto}}</td>
                         <td>{{$proyecto->descripcion_proyecto}}</td>
                         <td>
-                            <form action="{{ route('ingresarHorario') }}" method="post">
-                                    <button type="submit" class="btn btn-success">Ingresar Horario</button>
-                                    <input name="id_proyecto" type="hidden" value="{{$proyecto->id}}">
-                                    {{ csrf_field() }}
-                            </form>
+                            <a class="btn btn-success" href="/ingresarHorario/{{$proyecto->id}}" role="button">Ingresar Horario</a>
                         </td>
                     </tr>  
                 @endforeach
