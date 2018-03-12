@@ -52,7 +52,8 @@ class HorarioController extends Controller
         $this->validarRegistro($request);
         $horario = $this->crearHorario($request);
         $horario->save();
-        
+        $request->session()->flash('success', 'Horario Registrado');
+        // Session::flask('success', 'Horario Registrado');
         return redirect()->route('principal');
     }
 
@@ -84,7 +85,21 @@ class HorarioController extends Controller
         }
 
         return redirect()->route('principal');
+    }
 
+    public function postEliminarHorario(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+
+        $idHorario = $request['id_horario'];
+
+        if($idHorario){
+            $horarioaBorrar = Horario::find($idHorario);
+            $horarioaBorrar->Delete();
+        }
+
+        return redirect()->route('principal');
     }
 
     public function getHorarios(Request $request) {

@@ -8,6 +8,7 @@
         <link href="{{ URL::asset('css/bootstrap.css') }}" rel="stylesheet">
         <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ URL::asset('css/dataTables.css') }}" rel="stylesheet">
+        <link href="{{ URL::asset('css/toastr.min.css') }}" rel="stylesheet">
     </head>
     <body>
         <div class ="container-fluid">
@@ -17,6 +18,7 @@
         <script src="{{ URL::asset('js/jquery.js') }}"></script>
         <script src="{{ URL::asset('js/bootstrap.js') }}"></script>
         <script src="{{ URL::asset('js/dataTables.js') }}"></script>
+        <script src="{{ URL::asset('js/toastr.min.js') }}"></script>
         <script>
             $(document).ready(function(){
                 $('#propuestas').DataTable({
@@ -32,5 +34,8 @@
                 });
             });
         </script>
+        @if(session()->has('success'))
+            <script>toastr.success("{{session('success')}}")</script>
+        @endif
     </body>
 </html>
