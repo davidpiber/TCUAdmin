@@ -19,6 +19,14 @@ class HorarioController extends Controller
         ]);
     }
 
+    private function validarGuardarHorario(Request $request) {
+        $this->validate($request, [
+            'id_horario' => 'required|max:255',
+            'horario' => 'required|max:255',
+            'cantidad_instructores' => 'required|max:255'
+        ]);
+    }
+
     private function crearHorario(Request $request){
         $horario = new Horario();
         $horario->horario = $request['horario'];
@@ -46,6 +54,37 @@ class HorarioController extends Controller
         $horario->save();
         
         return redirect()->route('principal');
+    }
+
+    public function postEditarHorario(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        $horario = Horario::where('id', '=', $request['id_horario'])->first();
+        $proyecto = ProyectoPreaprobado::where('id', '=', $horario->id_proyecto)->first();
+        return view('contenedor-editar-horario')->with('horario', $horario)->with('proyecto', $proyecto);
+
+    }
+
+    public function postGuardarHorario(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        $this->validarGuardarHorario($request);
+
+        $idHorario = $request['id_horario'];
+        $horario = $request['horario'];
+        $cantidadInstructores = $request['cantidad_instructores'];
+
+        if($idHorario && $horario && $cantidadInstructores){
+            $horarioaActualizar = Horario::find($idHorario);
+            $horarioaActualizar->horario = $horario;
+            $horarioaActualizar->cantidad_instructores = $cantidadInstructores;
+            $horarioaActualizar->save();
+        }
+
+        return redirect()->route('principal');
+
     }
 
     public function getHorarios(Request $request) {

@@ -120,6 +120,11 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'eliminarHorario'
     ]);
 
+    Route::patch('/guardarHorario', [
+        'uses' => 'HorarioController@postGuardarHorario',
+        'as' => 'guardarHorario'
+    ]);
+
     Route::get('/horarios', [
         'uses' => 'HorarioController@getHorarios',
         'as' => 'horarios'
