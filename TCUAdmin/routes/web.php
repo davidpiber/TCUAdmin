@@ -58,6 +58,7 @@ Route::group(['middleware' => ['web']], function() {
         'uses' => 'UsuarioController@postEliminarEstudiante',
         'as' => 'eliminarEstudiante'
     ]);
+    
 
     // Propuestas Estudiantes
 
@@ -66,10 +67,16 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'tipoPropuesta'
     ]);
 
+    Route::get('/aprobarPropuestas', [
+        'uses' => 'PropuestaController@getPropuestasPreaprobadas',
+        'as' => 'aprobarPropuestas'
+    ]);
+
     Route::post('/tipoPropuesta', [
         'uses' => 'PropuestaController@postTipoPropuesta',
         'as' => 'tipoPropuesta'
     ]);
+    
 
     Route::get('/ingresarPropuesta', [
         'uses' => 'PropuestaController@getIngresarPropuesta',
@@ -79,6 +86,16 @@ Route::group(['middleware' => ['web']], function() {
     Route::post('/ingresarPropuesta', [
         'uses' => 'PropuestaController@postIngresarPropuesta',
         'as' => 'ingresarPropuesta'
+    ]);
+
+    Route::get('/propuesta/{id}', [
+        'uses' => 'PropuestaController@getPropuesta',
+        'as' => 'propuesta'
+    ]);
+
+    Route::post('/aprobarPropuesta', [
+        'uses' => 'PropuestaController@postAprobarPropuesta',
+        'as' => 'aprobarPropuesta'
     ]);
 
     // Empresas

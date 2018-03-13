@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Propuesta;
+use App\Usuario;
 use App\ProyectoPreaprobado;
 use Illuminate\Http\Request;
 use Illuminate\Support\facades\Auth;
@@ -68,6 +69,18 @@ class PropuestaController extends Controller
         
     }
 
+    public function getPropuestasPreaprobadas(Request $request){
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        $propuestas = Propuesta::all();
+
+        foreach ($propuestas as $propuesta) {
+            $propuesta->estudiante = Usuario::where('id', '=', $propuesta->id_usuario)->first();
+        }
+        return view('contenedor-aprobar-propuestas')->with('propuestas', $propuestas);
+    }
+
     public function postTipoPropuesta(Request $request){
         if (!Auth::check()){
             return view('welcome');
@@ -82,4 +95,28 @@ class PropuestaController extends Controller
         return redirect()->route('ingresarPropuesta');
         
     }
+
+    public function getPropuesta(Request $request){
+        if (!Auth::check()){
+            return view('welcome');
+        }
+
+        $propuesta = Propuesta::where('id', '=', $request['id'])->first();
+
+        return view('contenedor-propuesta')->with('propuesta', $propuesta);
+    }
+
+    public function postAprobarPropuesta(Request $request){
+        if (!Auth::check()){
+            return view('welcome');
+        }
+
+        $propuestaaActualizar = Propuesta::find($request['id_propuesta']);
+        $propuestaaActualizar->activa = true;
+        $propuestaaActualizar->save();
+        $request->session()->flash('success', 'Propuesta Aprobada con Exito');
+
+        return redirect()->route('aprobarPropuestas');
+    }
+
 }
