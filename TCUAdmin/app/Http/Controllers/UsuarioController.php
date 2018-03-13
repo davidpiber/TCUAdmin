@@ -115,6 +115,50 @@ class UsuarioController extends Controller {
         return view('contenedor-estudiantes')->with('estudiantes', $estudiantes);;
     }
 
+    public function EditarEstudiante(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        $estudiante = Usuario::where('id', '=', $request['id'])->first();
+        return view('contenedor-editar-estudiante')->with('estudiante', $estudiante);
+
+    }
+
+    public function postGuardarEstudiante(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        $this->validarGuardarHorario($request);
+
+        $idHorario = $request['id_horario'];
+        $horario = $request['horario'];
+        $cantidadInstructores = $request['cantidad_instructores'];
+
+        if($idHorario && $horario && $cantidadInstructores){
+            $horarioaActualizar = Horario::find($idHorario);
+            $horarioaActualizar->horario = $horario;
+            $horarioaActualizar->cantidad_instructores = $cantidadInstructores;
+            $horarioaActualizar->save();
+        }
+        $request->session()->flash('success', 'Horario Editado con Exito');
+        return redirect()->route('horarios');
+    }
+
+    public function postEliminarHorario(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+
+        $idHorario = $request['id_horario'];
+
+        if($idHorario){
+            $horarioaBorrar = Horario::find($idHorario);
+            $horarioaBorrar->Delete();
+        }
+        $request->session()->flash('success', 'Horario Eliminado con Exito');
+        return redirect()->route('horarios');
+    }
+
 
 }
 
