@@ -113,6 +113,7 @@ class UsuarioController extends Controller {
         $nuevoUsuario = $this->crearUsuario($request);
         $nuevoUsuario->save();
         Auth::login($nuevoUsuario);
+        $request->session()->flash('success', 'Estudiante Registrado con Exito');
         return redirect()->route('principal');
     }
 
@@ -132,6 +133,7 @@ class UsuarioController extends Controller {
 
             return view('login-container')->withErrors($errors);
         }
+        $request->session()->flash('success', 'Bienvenido al Sistema');
         return redirect()->route('principal');
     }
 
@@ -175,19 +177,19 @@ class UsuarioController extends Controller {
         return redirect()->route('estudiantes');
     }
 
-    public function postEliminarHorario(Request $request) {
+    public function postEliminarEstudiante(Request $request) {
         if (!Auth::check()){
             return view('welcome');
         }
 
-        $idHorario = $request['id_horario'];
+        $idEstudiante = $request['id_estudiante'];
 
-        if($idHorario){
-            $horarioaBorrar = Horario::find($idHorario);
-            $horarioaBorrar->Delete();
+        if($idEstudiante){
+            $estudianteaBorrar = Usuario::find($idEstudiante);
+            $estudianteaBorrar->Delete();
         }
-        $request->session()->flash('success', 'Horario Eliminado con Exito');
-        return redirect()->route('horarios');
+        $request->session()->flash('success', 'Estudiante Eliminado con Exito');
+        return redirect()->route('estudiantes');
     }
 
 

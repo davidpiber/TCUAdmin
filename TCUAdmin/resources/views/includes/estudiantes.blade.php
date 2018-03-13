@@ -33,11 +33,11 @@
                             <a class="btn btn-warning btn-sm" href="/editarEstudiante/{{$estudiante->id}}" role="button">Editar</a>
                             </td>
                             <td>
-                                    <form action="{{ route('eliminarEstudiante') }}" method="post">
-                                            <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
-                                            <input name="id_estudiante" type="hidden" value="{{$estudiante->id}}">
-                                            {{ csrf_field() }}
-                                    </form>
+                                <form action="{{ route('eliminarEstudiante') }}" method="post">
+                                        <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
+                                        <input name="id_estudiante" type="hidden" value="{{$estudiante->id}}">
+                                        {{ csrf_field() }}
+                                </form>
                             </td>
                         </tr>  
                     @endforeach

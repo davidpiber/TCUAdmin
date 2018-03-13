@@ -55,7 +55,7 @@ Route::group(['middleware' => ['web']], function() {
     ]);
 
     Route::post('/eliminarEstudiante/', [
-        'uses' => 'UsuarioController@EliminarEstudiante',
+        'uses' => 'UsuarioController@postEliminarEstudiante',
         'as' => 'eliminarEstudiante'
     ]);
 
