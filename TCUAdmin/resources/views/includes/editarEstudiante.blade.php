@@ -43,12 +43,12 @@
         <div class="form-group">
             <label for="genero">Genero:</label>
             <select name="genero" class="form-control">
-                @if($estudiante->genero === 'masculino')
+                @if($estudiante->genero == 'masculino')
                     <option value="masculino" selected>Masculino</option>
                     @else
                     <option value="masculino">Masculino</option>
                 @endif
-                @if($estudiante->genero === 'femenino')
+                @if($estudiante->genero == 'femenino')
                     <option value="femenino" selected>Femenino</option>
                 @else
                     <option value="femenino">Femenino</option>
@@ -64,12 +64,28 @@
         </div>
 
         <div class="form-group">
-                <label for="isAdmin">Admin:</label>
-                <select name="isAdmin" class="form-control">
-                    <option value="false">Usuario</option>
-                    <option value="true">Admin</option>
+                <label for="is_admin">Admin:</label>
+                <select name="is_admin" class="form-control">
+                    @if($estudiante->admin)
+                        <option value="true" selected>Admin</option>
+                    @else
+                        <option value="true">Admin</option>
+                    @endif
+                    @if(!$estudiante->admin)
+                        <option value="false" selected>Usuario</option>
+                    @else
+                        <option value="false">Usuario</option>
+                    @endif
                 </select>
-            </div>
+        </div>
+        <div class="form-group">
+            <label for="reset_password">Reset Password:</label>
+            <select name="reset_password" class="form-control">
+                <option value="false">No</option>
+                <option value="true">Si</option>
+            </select>
+        </div>
+        <input name="id_estudiante" type="hidden" value="{{$estudiante->id}}">
         <button type="Submit" class="btn btn-primary">Registrar</button>
         {{ csrf_field() }}
     </form>

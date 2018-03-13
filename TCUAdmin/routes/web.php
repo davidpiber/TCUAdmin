@@ -50,7 +50,7 @@ Route::group(['middleware' => ['web']], function() {
     ]);
 
     Route::post('/guardarEstudiante', [
-        'uses' => 'HorarioController@postGuardarEstudiante',
+        'uses' => 'UsuarioController@postGuardarEstudiante',
         'as' => 'guardarEstudiante'
     ]);
 

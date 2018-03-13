@@ -44,6 +44,22 @@ class UsuarioController extends Controller {
         ]);
     }
 
+    private function validarGuardarEstudiante(Request $request) {
+        $this->validate($request, [
+            'nombre' => 'required|max:255',
+            'primer_apellido' => 'required|max:255',
+            'segundo_apellido' => 'required|max:255',
+            'cedula' => 'required|max:255',
+            'carnet_universidad' => 'required|max:255',
+            'correo_universidad' => 'email|required|max:255',
+            'correo_personal' => 'email|required|max:255',
+            'genero' => 'required|max:255',
+            'sede' => 'required|max:255',
+            'is_admin' => 'required|max:255',
+            'reset_password' => 'required|max:255'
+        ]);
+    }
+
     private function validarLogin(Request $request) {
         $this->validate($request, [
             'correo_universidad' => 'email|required',
@@ -66,6 +82,28 @@ class UsuarioController extends Controller {
         $usuario->sede = $request['sede'];
         // Ningun nuevo usario es admin :)
         $usuario->admin = false;
+
+        return $usuario;
+    }
+
+    private function crearUsuarioaGuardar(Request $request){
+        $usuario = Usuario::find($request['id_estudiante']);
+        $usuario->nombre = $request['nombre'];
+        $usuario->primer_apellido = $request['primer_apellido'];
+        $usuario->segundo_apellido = $request['segundo_apellido'];
+        $usuario->cedula = $request['cedula'];
+        $usuario->carnet_universidad = $request['carnet_universidad'];
+        $usuario->correo_universidad = $request['correo_universidad'];
+        $usuario->correo_personal = $request['correo_personal'];
+
+        if($request['reset_password'] == 'true') {
+            $usuario->password = bcrypt('Latina2018*');
+        }
+        
+        $usuario->genero = $request['genero'];
+        $usuario->sede = $request['sede'];
+
+        $usuario->admin = $request['is_admin'] == 'true' ? true : false;
 
         return $usuario;
     }
@@ -128,20 +166,13 @@ class UsuarioController extends Controller {
         if (!Auth::check()){
             return view('welcome');
         }
-        $this->validarGuardarHorario($request);
+        $this->validarGuardarEstudiante($request);
 
-        $idHorario = $request['id_horario'];
-        $horario = $request['horario'];
-        $cantidadInstructores = $request['cantidad_instructores'];
+        $estudiante = $this->crearUsuarioaGuardar($request);
+        $estudiante->save();
 
-        if($idHorario && $horario && $cantidadInstructores){
-            $horarioaActualizar = Horario::find($idHorario);
-            $horarioaActualizar->horario = $horario;
-            $horarioaActualizar->cantidad_instructores = $cantidadInstructores;
-            $horarioaActualizar->save();
-        }
-        $request->session()->flash('success', 'Horario Editado con Exito');
-        return redirect()->route('horarios');
+        $request->session()->flash('success', 'Estudiante Actualizado con Exito');
+        return redirect()->route('estudiantes');
     }
 
     public function postEliminarHorario(Request $request) {
