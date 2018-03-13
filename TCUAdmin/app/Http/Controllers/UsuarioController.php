@@ -9,8 +9,16 @@ use Illuminate\Support\MessageBag;
 
 class UsuarioController extends Controller {
 
+    public function getPagina() {
+        if (!Auth::check()) {
+            return view('welcome');
+        } else {
+            return view('principal');
+        }
+    }
+
     public function getPrincipal() {
-        if (!Auth::check()){
+        if (!Auth::check()) {
             return view('welcome');
         }
             
@@ -96,6 +104,15 @@ class UsuarioController extends Controller {
     public function postLogout(Request $request) {
         Auth::logout();
         return redirect()->route('login');
+    }
+
+    public function getEstudiantes(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        $estudiantes = Usuario::all();
+
+        return view('contenedor-estudiantes')->with('estudiantes', $estudiantes);;
     }
 
 

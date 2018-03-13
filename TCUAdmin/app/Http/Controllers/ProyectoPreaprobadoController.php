@@ -31,6 +31,7 @@ class ProyectoPreaprobadoController extends Controller
         $this->validarProyectoPreaprobado($request);
         $nuevoproyectoPreaprobado = $this->crearProyectoPreaprobado($request);
         $nuevoproyectoPreaprobado->save();
+        $request->session()->flash('success', 'Proyecto Registrado con Exito');
         return redirect()->route('principal');
     }
 

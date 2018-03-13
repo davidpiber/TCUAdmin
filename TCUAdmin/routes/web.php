@@ -14,9 +14,10 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'registrar'
     ]);
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    Route::get('/', [
+        'uses' => 'UsuarioController@getPagina',
+        'as' => '/'
+    ]);
 
     Route::get('/principal', [
         'uses' => 'UsuarioController@getPrincipal',
@@ -36,6 +37,21 @@ Route::group(['middleware' => ['web']], function() {
     Route::post('/logout', [
         'uses' => 'UsuarioController@postLogout',
         'as' => 'logout'
+    ]);
+
+    Route::get('/estudiantes', [
+        'uses' => 'UsuarioController@getEstudiantes',
+        'as' => 'estudiantes'
+    ]);
+
+    Route::get('/editarEstudiante/{id}', [
+        'uses' => 'UsuarioController@EditarEstudiante',
+        'as' => 'editarEstudiante'
+    ]);
+
+    Route::post('/eliminarEstudiante/', [
+        'uses' => 'UsuarioController@EliminarEstudiante',
+        'as' => 'eliminarEstudiante'
     ]);
 
     // Propuestas Estudiantes
