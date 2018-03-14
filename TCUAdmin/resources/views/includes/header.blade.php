@@ -10,7 +10,10 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <!-- Branding Image -->
+                    <a class="navbar-brand" rel="home" href="#" title="Buy Sell Rent Everyting">
+                            <img style="max-width:171px; margin-top: -7px;margin-left: -24px;"
+                                 src="/images/logo.jpg">
+                    </a>
                     <a class="navbar-brand" href="/principal">TCU ADMIN</a>
                 </div>
 

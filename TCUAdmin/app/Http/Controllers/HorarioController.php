@@ -110,7 +110,7 @@ class HorarioController extends Controller
             $horario->proyecto = ProyectoPreaprobado::where('id', '=', $horario->id_proyecto)->first();
         }
 
-        return view('contenedor-horarios')->with('horarios', $horarios);
+        return view('contenedor-mensajes')->with('horarios', $horarios);
     }
 
 }

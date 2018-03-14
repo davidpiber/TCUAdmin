@@ -46,4 +46,21 @@ class MensajeController extends Controller {
 
     }
 
+    public function getMensajes(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        $mensajes = Mensaje::all();
+        foreach ($mensajes as $mensaje) {
+            $mensaje->usuario = Usuario::where('id', '=', $mensaje->id_usuario)->first();
+            $mensaje->usuario_envia = Usuario::where('id', '=', $mensaje->id_usuario_envia)->first();
+            $mensaje->fecha = new DateTime($mensaje->fecha);
+            $mensaje->fecha = $mensaje->fecha->format('d-m-Y');
+        }
+        // dd($mensajes[0]->fecha->format('d-m-y'));
+
+        return view('contenedor-mensajes')->with('mensajes', $mensajes);
+
+    }
+
 }
