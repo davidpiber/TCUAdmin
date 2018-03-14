@@ -127,6 +127,7 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'ingresarHorarios'
     ]);
 
+    // datatables
     Route::get('/proyectos', function (Request $request) {
         return datatables()->of(ProyectoPreaprobado::query())->toJson();
     });
@@ -167,5 +168,24 @@ Route::group(['middleware' => ['web']], function() {
         'uses' => 'HorarioController@getHorarios',
         'as' => 'horarios'
     ]);
+
+    // Mensajes
+
+    Route::get('/mensajes', [
+        'uses' => 'MensajeController@getMensajes',
+        'as' => 'mensajes'
+    ]);
+
+    Route::get('/enviarMensaje/{id}', [
+        'uses' => 'MensajeController@getEnviarMensaje',
+        'as' => 'enviarMensaje'
+    ]);
+
+    Route::post('/registrarMensaje', [
+        'uses' => 'MensajeController@postRegistrarMensaje',
+        'as' => 'registrarMensaje'
+    ]);
+
+    
 
 });

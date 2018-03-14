@@ -10,10 +10,10 @@
                 <th scope="col">Carnet Universidad</th>
                 <th scope="col">Correo Universidad</th>
                 <th scope="col">Correo Personal</th>
-                <th scope="col">Genero</th>
                 <th scope="col">Sede</th>
                 <th scope="col">Editar</th>
                 <th scope="col">Borrar</th>
+                <th scope="col">Mensajes</th>
               </tr>
             </thead>
             <tbody>
@@ -27,10 +27,9 @@
                             <td>{{$estudiante->carnet_universidad}}</td>
                             <td>{{$estudiante->correo_personal}}</td>
                             <td>{{$estudiante->correo_universidad}}</td>
-                            <td>{{$estudiante->genero}}</td>
                             <td>{{$estudiante->sede}}</td>
                             <td>
-                            <a class="btn btn-warning btn-sm" href="/editarEstudiante/{{$estudiante->id}}" role="button">Editar</a>
+                                <a class="btn btn-warning btn-sm" href="/editarEstudiante/{{$estudiante->id}}" role="button">Editar</a>
                             </td>
                             <td>
                                 <form action="{{ route('eliminarEstudiante') }}" method="post">
@@ -38,6 +37,9 @@
                                         <input name="id_estudiante" type="hidden" value="{{$estudiante->id}}">
                                         {{ csrf_field() }}
                                 </form>
+                            </td>
+                            <td>
+                                    <a class="btn btn-success btn-sm" href="/enviarMensaje/{{$estudiante->id}}" role="button">Mensaje</a>
                             </td>
                         </tr>  
                     @endforeach
