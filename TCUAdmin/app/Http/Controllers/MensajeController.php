@@ -57,9 +57,18 @@ class MensajeController extends Controller {
             $mensaje->fecha = new DateTime($mensaje->fecha);
             $mensaje->fecha = $mensaje->fecha->format('d-m-Y');
         }
-        // dd($mensajes[0]->fecha->format('d-m-y'));
 
         return view('contenedor-mensajes')->with('mensajes', $mensajes);
+
+    }
+
+    public function getEditarMensaje(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        $mensaje = Mensaje::find($request['id']);   
+        // dd($mensaje->id_usuario_envia);
+        return view('contenedor-editar-mensaje')->with('mensaje', $mensaje);
 
     }
 

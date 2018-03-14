@@ -10,7 +10,7 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <a class="navbar-brand" rel="home" href="#" title="Buy Sell Rent Everyting">
+                    <a class="navbar-brand" rel="home" href="/principal" title="Buy Sell Rent Everyting">
                             <img style="max-width:171px; margin-top: -7px;margin-left: -24px;"
                                  src="/images/logo.jpg">
                     </a>
