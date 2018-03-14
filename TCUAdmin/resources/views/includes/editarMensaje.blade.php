@@ -21,7 +21,7 @@
                     <textarea class="form-control" rows="5" maxlength="255" name="descripcion">{{$mensaje->descripcion}}</textarea>
                 </div>
                 <input name="id_usuario" type="hidden" value="{{$mensaje->id_usuario}}">
-                <input name="id_horario_envia" type="hidden" value="{{$mensaje->id_horario_envia}}">
+                <input name="id_usuario_envia" type="hidden" value="{{$mensaje->id_usuario_envia}}">
                 <button type="Submit" class="btn btn-primary">Guardar Mensaje</button>
                 {{ csrf_field() }}
             </form>

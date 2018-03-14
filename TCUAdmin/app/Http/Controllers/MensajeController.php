@@ -37,7 +37,7 @@ class MensajeController extends Controller {
         $mensaje->descripcion = $request['descripcion'];
         $mensaje->id_usuario = $request['id_usuario'];
         $mensaje->fecha = new DateTime();
-        $mensaje->id_usuario_envia = $request['id_horario_envia'];
+        $mensaje->id_usuario_envia = $request['id_usuario_envia'];
         $mensaje->visto = false;
         $mensaje->save();
 
@@ -66,8 +66,8 @@ class MensajeController extends Controller {
         if (!Auth::check()){
             return view('welcome');
         }
-        $mensaje = Mensaje::find($request['id']);   
-        // dd($mensaje->id_usuario_envia);
+        $mensaje = Mensaje::find($request['id']);
+
         return view('contenedor-editar-mensaje')->with('mensaje', $mensaje);
 
     }
