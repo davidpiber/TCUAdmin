@@ -72,6 +72,16 @@ class MensajeController extends Controller {
 
     }
 
+    public function getMensajesEstudiante(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        $mensajes = Mensaje::where('id_usuario', '=', $request['id']);
+        dd($mensajes->count());
+        return view('contenedor-editar-mensaje')->with('mensaje', $mensajes);
+
+    }
+
     public function postEliminarMensaje(Request $request) {
         if (!Auth::check()){
             return view('welcome');

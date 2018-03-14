@@ -21,7 +21,7 @@
                 <textarea class="form-control" rows="5" maxlength="255" name="descripcion">{{Request::old('descripcion')}}</textarea>
             </div>
             <input name="id_usuario" type="hidden" value="{{$usuario->id}}">
-            <input name="id_horario_envia" type="hidden" value="{{Auth::user()->id}}">
+            <input name="id_usuario_envia" type="hidden" value="{{Auth::user()->id}}">
             <button type="Submit" class="btn btn-primary">Enviar Mensaje</button>
             {{ csrf_field() }}
         </form>
