@@ -72,4 +72,19 @@ class MensajeController extends Controller {
 
     }
 
+    public function postEliminarMensaje(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+
+        $idMensaje = $request['id_mensaje'];
+
+        if($idMensaje){
+            $mensajeaBorrar = Mensaje::find($idMensaje);
+            $mensajeaBorrar->Delete();
+        }
+        $request->session()->flash('success', 'Mensaje Eliminado con Exito');
+        return redirect()->route('mensajes');
+    }
+
 }

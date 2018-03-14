@@ -27,7 +27,7 @@
                             <td>
                                 <form action="{{ route('eliminarMensaje') }}" method="post">
                                     <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
-                                    <input name="id_estudiante" type="hidden" value="{{$mensaje->id}}">
+                                    <input name="id_mensaje" type="hidden" value="{{$mensaje->id}}">
                                     {{ csrf_field() }}
                                 </form>
                             </td>
