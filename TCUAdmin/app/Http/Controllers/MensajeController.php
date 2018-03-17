@@ -22,6 +22,7 @@ class MensajeController extends Controller {
         if (!Auth::check()){
             return view('welcome');
         }
+
         $usuario = Usuario::where('id', '=', $request['id'])->first();
         return view('contenedor-registrar-mensaje')->with('usuario', $usuario);
 
@@ -47,7 +48,7 @@ class MensajeController extends Controller {
     }
 
     public function getMensajes(Request $request) {
-        if (!Auth::check()){
+        if (!Auth::check() || !Auth::user()->admin){
             return view('welcome');
         }
         $mensajes = Mensaje::all();
@@ -76,10 +77,17 @@ class MensajeController extends Controller {
         if (!Auth::check()){
             return view('welcome');
         }
-        $mensajes = Mensaje::where('id_usuario', '=', $request['id']);
-        dd($mensajes->count());
-        return view('contenedor-editar-mensaje')->with('mensaje', $mensajes);
+        $mensajes = Mensaje::where('id_usuario', '=', $request['id'])->get();
 
+        foreach ($mensajes as $mensaje) {
+            $mensaje->usuario_envia = Usuario::where('id', '=', $mensaje->id_usuario_envia)->first();
+            $mensaje->fecha = new DateTime($mensaje->fecha);
+            $mensaje->fecha = $mensaje->fecha->format('d-m-Y');
+            $mensaje->titulo = substr($mensaje->titulo, 0, 25);
+            $mensaje->descripcion = substr($mensaje->titulo, 0, 25);
+        }
+
+        return view('contenedor-mensajes-estudiante')->with('mensajes', $mensajes);
     }
 
     public function postEliminarMensaje(Request $request) {
