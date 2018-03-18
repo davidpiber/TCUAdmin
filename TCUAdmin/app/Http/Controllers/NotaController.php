@@ -97,4 +97,19 @@ class NotaController extends Controller {
         return redirect()->route('notasEstudiantes');
     }
 
+    public function postEliminarNota(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+
+        $idNota = $request['id_nota'];
+
+        if($idNota){
+            $NotaABorrar = Nota::find($idNota);
+            $NotaABorrar->Delete();
+        }
+        $request->session()->flash('success', 'Nota Eliminada con Exito');
+        return redirect()->route('notasEstudiantes');
+    }
+
 }
