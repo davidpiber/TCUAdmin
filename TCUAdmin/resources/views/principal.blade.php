@@ -13,6 +13,7 @@
           <a class="btn btn-primary register-button" href="/empresas" role="button">Empresas</a>
           <a class="btn btn-primary register-button" href="/mensajes" role="button">Mensajes</a>
           <a class="btn btn-primary register-button" href="/ingresarNotas" role="button">Ingresar Notas</a>
+          <a class="btn btn-primary register-button" href="/notasEstudiantes" role="button">Notas Estudiantes</a>
         </div>
       </div>
 </div>

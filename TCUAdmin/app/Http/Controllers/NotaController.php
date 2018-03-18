@@ -44,7 +44,7 @@ class NotaController extends Controller {
         }
 
         $this->validarNota($request);
-        
+
         $nota = new Nota();
         $nota->id_usuario = $request['id_estudiante'];
         $nota->descripcion = $request['descripcion'];
@@ -55,6 +55,19 @@ class NotaController extends Controller {
 
         $estudiantes = Usuario::all();
         return view('contenedor-notas')->with('estudiantes', $estudiantes);
+    }
+
+    public function getNotasEstudiantes(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        $notas = Nota::all();
+
+        foreach ($notas as $nota) {
+            $nota->estudiante = Usuario::where('id', '=', $nota->id_usuario)->first();
+        }
+
+        return view('contenedor-notas-estudiantes')->with('notas', $notas);
     }
 
 
