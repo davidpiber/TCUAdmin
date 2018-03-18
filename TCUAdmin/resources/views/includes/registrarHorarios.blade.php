@@ -1,5 +1,5 @@
-<h1>Proyectos Preaprobados</h1>
 <div class="container">
+    <h1>Proyectos Preaprobados</h1>
     <table class="table">
         <thead>
           <tr>

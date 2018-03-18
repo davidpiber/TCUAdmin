@@ -207,6 +207,21 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'eliminarMensaje'
     ]);
 
-    
+    // Notas
+
+    Route::get('/ingresarNotas', [
+        'uses' => 'NotaController@getNotas',
+        'as' => 'ingresarNotas'
+    ]);
+
+    Route::get('/ingresarNota/{idEstudiante}', [
+        'uses' => 'NotaController@getIngresarNota',
+        'as' => 'ingresarNota'
+    ]);
+
+    Route::post('/guardarNota', [
+        'uses' => 'NotaController@postGuardarNota',
+        'as' => 'guardarNota'
+    ]);
 
 });
