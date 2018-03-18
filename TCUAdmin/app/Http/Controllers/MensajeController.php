@@ -18,6 +18,12 @@ class MensajeController extends Controller {
         ]);
     }
 
+    private function actualizarMensajeVisto($id) {
+        $mensaje = Mensaje::find($id);
+        $mensaje->visto = true;
+        $mensaje->save();
+    }
+
     public function getEnviarMensaje(Request $request) {
         if (!Auth::check()){
             return view('welcome');
@@ -88,6 +94,19 @@ class MensajeController extends Controller {
         }
 
         return view('contenedor-mensajes-estudiante')->with('mensajes', $mensajes);
+    }
+
+    public function getMensaje(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        $idMensaje = $request['id'];
+        $mensaje = Mensaje::find($idMensaje);
+        $mensaje->usuarioEnvia = Usuario::find($mensaje->id_usuario_envia);
+        $this->actualizarMensajeVisto($idMensaje);
+        $mensaje->usuarioEnvia->nombre = ucwords($mensaje->usuarioEnvia->nombre);
+
+        return view('contenedor-mensaje-estudiante')->with('mensaje', $mensaje);
     }
 
     public function postEliminarMensaje(Request $request) {

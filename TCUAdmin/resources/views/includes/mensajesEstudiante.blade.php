@@ -7,6 +7,7 @@
             <th scope="col">Fecha</th>
             <th scope="col">descripcion</th>
             <th scope="col">Administrador</th>
+            <th scope="col">Ver Mensaje</th>
           </tr>
         </thead>
         <tbody>
@@ -18,7 +19,7 @@
                         <td>{{$mensaje->descripcion}}</td>
                         <td>{{$mensaje->usuario_envia->nombre }}</td>
                         <td>
-                            <a class="btn btn-warning btn-sm" href="/mensaje/{{$mensaje->id}}" role="button">Ver</a>
+                            <a class="btn btn-success btn-sm" href="/mensaje/{{$mensaje->id}}" role="button">Ver</a>
                         </td>
                     </tr>  
                 @endforeach
