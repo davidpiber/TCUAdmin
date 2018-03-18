@@ -12,6 +12,7 @@
           <a class="btn btn-primary register-button" href="/horarios" role="button">Horarios</a><br/>
           <a class="btn btn-primary register-button" href="/empresas" role="button">Empresas</a>
           <a class="btn btn-primary register-button" href="/mensajes" role="button">Mensajes</a>
+          <a class="btn btn-primary register-button" href="/ingresarNotas" role="button">Ingresar Notas</a>
         </div>
       </div>
 </div>

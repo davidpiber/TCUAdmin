@@ -21,11 +21,11 @@
                         <a class="btn btn-sm btn-warning" href="/editarHorario/{{$horario->id}}" role="button">Editar Horario</a>
                         </td>
                         <td>
-                                <form action="{{ route('eliminarHorario') }}" method="post">
-                                        <button type="submit" class="btn btn-sm btn-danger">Borrar Horario</button>
-                                        <input name="id_horario" type="hidden" value="{{$horario->id}}">
-                                        {{ csrf_field() }}
-                                </form>
+                            <form action="{{ route('eliminarHorario') }}" method="post">
+                                <button type="submit" class="btn btn-sm btn-danger">Borrar Horario</button>
+                                <input name="id_horario" type="hidden" value="{{$horario->id}}">
+                                {{ csrf_field() }}
+                            </form>
                         </td>
                     </tr>  
                 @endforeach
