@@ -70,5 +70,31 @@ class NotaController extends Controller {
         return view('contenedor-notas-estudiantes')->with('notas', $notas);
     }
 
+    public function editarNota(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        $idNota = $request['id_nota'];
+        $nota = Nota::find($idNota);
+        $proyectosPreaprobados = ProyectoPreaprobado::all();
+
+        return view('contenedor-editar-nota')->with('nota', $nota)->with('proyectosPreaprobados', $proyectosPreaprobados);
+    }
+
+    public function postGuardarNotaEditada(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        $this->validarNota($request);
+        $idNota = $request['id_nota'];
+        $nota = Nota::find($idNota);
+        $nota->descripcion = $request['descripcion'];
+        $nota->nota = $request['nota'];
+        $nota->id_proyecto_preaprobado = $request['proyecto_preaprobado'];
+        $nota->save();
+
+        $request->session()->flash('success', 'Nota Editada con Exito');
+        return redirect()->route('notasEstudiantes');
+    }
 
 }

@@ -22,12 +22,12 @@
                             <td>{{$nota->estudiante->primer_apellido}}</td>
                             <td>{{$nota->estudiante->segundo_apellido}}</td>
                             <td>
-                                <a class="btn btn-warning btn-sm" href="/editarNota/{{$nota->estudiante->id}}" role="button">Editar</a>
+                                <a class="btn btn-warning btn-sm" href="/editarNota/{{$nota->id}}" role="button">Editar</a>
                             </td>
                             <td>
                                 <form action="{{ route('eliminarNota') }}" method="post">
                                         <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
-                                        <input name="id_estudiante" type="hidden" value="{{$nota->estudiante->id}}">
+                                        <input name="id_nota" type="hidden" value="{{$nota->id}}">
                                         {{ csrf_field() }}
                                 </form>
                             </td>

@@ -229,10 +229,20 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'notasEstudiantes'
     ]);
 
+    Route::get('/editarNota/{id_nota}', [
+        'uses' => 'NotaController@editarNota',
+        'as' => 'editarNota'
+    ]);
+
     Route::post('/eliminarNota', [
         'uses' => 'NotaController@postEliminarNota',
         'as' => 'eliminarNota'
     ]);
     
+
+    Route::post('/editarNota/', [
+        'uses' => 'NotaController@postGuardarNotaEditada',
+        'as' => 'editarNota'
+    ]);
 
 });
