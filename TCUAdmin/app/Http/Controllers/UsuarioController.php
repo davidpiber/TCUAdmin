@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Usuario;
+use App\Mensaje;
 use Illuminate\Http\Request;
 use Illuminate\Support\facades\Auth;
 use Illuminate\Support\MessageBag;
@@ -21,8 +22,8 @@ class UsuarioController extends Controller {
         if (!Auth::check()) {
             return view('welcome');
         }
-            
-        return view('principal');
+        $mensajesSinleer = Mensaje::where('id_usuario', '=', Auth::user()->id)->where('visto', false)->count();
+        return view('principal')->with('mensajesSinleer', $mensajesSinleer);;
     }
 
     public function getRegistrar() {

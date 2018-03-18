@@ -7,6 +7,7 @@
             <th scope="col">Fecha</th>
             <th scope="col">descripcion</th>
             <th scope="col">Administrador</th>
+            <th scope="col">Visto</th>
             <th scope="col">Ver Mensaje</th>
           </tr>
         </thead>
@@ -18,6 +19,7 @@
                         <td>{{$mensaje->fecha}}</td>
                         <td>{{$mensaje->descripcion}}</td>
                         <td>{{$mensaje->usuario_envia->nombre }}</td>
+                        <td>{{$mensaje->visto ? 'Visto' : 'Sin Leer'}}</td>
                         <td>
                             <a class="btn btn-success btn-sm" href="/mensaje/{{$mensaje->id}}" role="button">Ver</a>
                         </td>

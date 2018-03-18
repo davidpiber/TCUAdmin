@@ -25,6 +25,13 @@
       </div>
       <div class="panel panel-default">
         <div class="panel-body">
+          @if($mensajesSinleer && $mensajesSinleer > 0)
+          <div class="alert alert-danger">
+              <ul>
+                  <li>Tienes {{$mensajesSinleer}} mensajes sin leer.</li>
+              </ul>
+          </div>
+          @endif
         <a class="btn btn-primary register-button" href="/mensajesEstudiante/{{Auth::user()->id}}" role="button">Mensajes</a>
       </div>
 </div>
