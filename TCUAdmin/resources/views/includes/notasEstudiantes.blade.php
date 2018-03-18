@@ -3,6 +3,7 @@
         <table class="table">
             <thead>
               <tr>
+                <th scope="col">Proyecto</th>                 
                 <th scope="col">Nota</th>
                 <th scope="col">Descripción</th>
                 <th scope="col">Nombre Estudiante</th>
@@ -16,6 +17,7 @@
                 @if($notas && count($notas) > 0)
                     @foreach ($notas as $nota)
                         <tr>
+                            <td>{{$nota->proyecto->nombre_proyecto}}</td>
                             <td>{{$nota->nota}}</td>
                             <td>{{$nota->descripcion}}</td>
                             <td>{{$nota->estudiante->nombre}}</td>

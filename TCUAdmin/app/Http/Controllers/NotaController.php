@@ -65,6 +65,7 @@ class NotaController extends Controller {
 
         foreach ($notas as $nota) {
             $nota->estudiante = Usuario::where('id', '=', $nota->id_usuario)->first();
+            $nota->proyecto = ProyectoPreaprobado::where('id', '=', $nota->id_proyecto_preaprobado)->first();
         }
 
         return view('contenedor-notas-estudiantes')->with('notas', $notas);
