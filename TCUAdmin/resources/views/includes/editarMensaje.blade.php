@@ -22,7 +22,7 @@
                 </div>
                 <input name="id_usuario" type="hidden" value="{{$mensaje->id_usuario}}">
                 <input name="id_usuario_envia" type="hidden" value="{{$mensaje->id_usuario_envia}}">
-                <button type="Submit" class="btn btn-primary">Guardar Mensaje</button>
+                <button type="Submit" class="btn btn-success">Guardar Mensaje</button>
                 {{ csrf_field() }}
             </form>
 </div>

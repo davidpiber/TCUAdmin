@@ -38,7 +38,7 @@
                 <textarea class="form-control" rows="5" maxlength="255" name="cronograma" disabled>{{$propuesta->cronograma}}</textarea>
             </div>
             <input name="id_propuesta" type="hidden" value="{{$propuesta->id}}">
-            <button type="Submit" class="btn btn-primary">Aprobar Propuesta</button>
+            <button type="Submit" class="btn btn-success">Aprobar Propuesta</button>
             {{ csrf_field() }}
         </form>
 </div>

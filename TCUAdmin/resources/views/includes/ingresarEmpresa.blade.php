@@ -40,7 +40,7 @@
             <label for="email">Correo Supervisor:</label>
             <input class="form-control" type="email" name="correo_supervisor" value={{Request::old('correo_supervisor')}}>
         </div>
-        <button type="Submit" class="btn btn-primary">Registrar Empresa</button>
+        <button type="Submit" class="btn btn-success">Registrar Empresa</button>
         {{ csrf_field() }}
     </form>
 </div>

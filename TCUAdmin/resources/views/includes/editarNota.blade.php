@@ -29,7 +29,7 @@
                 </select>
             </div>
             <input name="id_nota" type="hidden" value="{{$nota->id}}">
-            <button type="Submit" class="btn btn-primary">Guardar Nota</button>
+            <button type="Submit" class="btn btn-success">Guardar Nota</button>
             {{ csrf_field() }}
         </form>
     </div>

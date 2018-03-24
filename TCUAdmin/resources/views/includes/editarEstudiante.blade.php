@@ -86,7 +86,7 @@
             </select>
         </div>
         <input name="id_estudiante" type="hidden" value="{{$estudiante->id}}">
-        <button type="Submit" class="btn btn-primary">Registrar</button>
+        <button type="Submit" class="btn btn-success">Registrar</button>
         {{ csrf_field() }}
     </form>
 </div>

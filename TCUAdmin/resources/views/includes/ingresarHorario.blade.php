@@ -21,7 +21,7 @@
                     <input class="form-control" type="number" maxlength="255" name="cantidad_instructores" value={{Request::old('cantidad_instructores')}}>
             </div>
             <input name="id_proyecto" type="hidden" value="{{$proyecto->id}}">
-            <button type="Submit" class="btn btn-primary">Registrar Horario</button>
+            <button type="Submit" class="btn btn-success">Registrar Horario</button>
             {{ csrf_field() }}
         </form>
     </div>

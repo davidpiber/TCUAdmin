@@ -20,9 +20,9 @@
             <label for="nombre">Password:</label>
             <input class="form-control" type="password" name="password">
         </div>
-        <button type="Submit" class="btn btn-primary">Entrar</button>
+        <button type="Submit" class="btn btn-success">Entrar</button>
         {{ csrf_field() }}
     </form>
-    <a class="btn btn-primary register-button" href="/registrar" role="button">Registarse</a>
+    <a class="btn btn-success register-button" href="/registrar" role="button">Registarse</a>
 </div>
 

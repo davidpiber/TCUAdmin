@@ -49,7 +49,7 @@
             <textarea class="form-control" rows="5" maxlength="255" name="cronograma" value={{Request::old('cronograma')}}></textarea>
         </div>
         <input name="id_usuario" type="hidden" value="{{Auth::user()->id}}">
-        <button type="Submit" class="btn btn-primary">Registrar Propuesta</button>
+        <button type="Submit" class="btn btn-success">Registrar Propuesta</button>
         {{ csrf_field() }}
     </form>
 </div>

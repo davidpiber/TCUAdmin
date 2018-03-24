@@ -21,7 +21,7 @@
                         <input class="form-control" type="number" maxlength="255" name="cantidad_instructores" value={{$horario->cantidad_instructores}}>
                 </div>
                 <input name="id_horario" type="hidden" value="{{$horario->id}}">
-                <button type="Submit" class="btn btn-primary">Editar Horario</button>
+                <button type="Submit" class="btn btn-success">Editar Horario</button>
                 {{ csrf_field() }}
             </form>
 </div>

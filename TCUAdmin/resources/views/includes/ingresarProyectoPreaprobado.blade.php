@@ -27,7 +27,7 @@
                 <option value="false">Inactiva</option>
             </select>
         </div>
-        <button type="Submit" class="btn btn-primary">Registrar Proyecto</button>
+        <button type="Submit" class="btn btn-success">Registrar Proyecto</button>
         {{ csrf_field() }}
     </form>
 </div>

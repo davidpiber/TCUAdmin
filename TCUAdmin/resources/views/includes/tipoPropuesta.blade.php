@@ -19,7 +19,7 @@
                 <option value="false">Empresa</option>
             </select>
         </div>
-        <button type="Submit" class="btn btn-primary">Seleccionar Propuesta</button>
+        <button type="Submit" class="btn btn-success">Seleccionar Propuesta</button>
         {{ csrf_field() }}
     </form>
 </div>

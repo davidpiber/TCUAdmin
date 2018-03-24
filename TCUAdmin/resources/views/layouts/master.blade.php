@@ -11,7 +11,7 @@
         <link href="{{ URL::asset('css/toastr.min.css') }}" rel="stylesheet">
     </head>
     <body>
-        <div class ="container-fluid">
+        <div>
         @include('includes.header')
             @yield('content')
         </div>

@@ -29,7 +29,7 @@
                 </select>
             </div>
             <input name="id_estudiante" type="hidden" value="{{$usuario->id}}">
-            <button type="Submit" class="btn btn-primary">Registrar Nota</button>
+            <button type="Submit" class="btn btn-success">Registrar Nota</button>
             {{ csrf_field() }}
         </form>
     </div>

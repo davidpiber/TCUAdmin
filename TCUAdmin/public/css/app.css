@@ -14,3 +14,31 @@
 .loggedin-user {
     margin-top: 70px !important;
 }
+
+.card-style {
+    border: solid 1.5px;
+    border-radius: 5px;
+    padding: 6px;
+    border-color: #00C851;
+    margin-top: 7px;
+}
+
+.footer-text {
+    color: white;
+    padding: 2px;
+    padding-left: 16px;
+    padding-top: 8px;
+}
+
+.footer{
+    background: #00C851;
+}
+
+.header {
+    background: #00C851;
+}
+
+.main-panel {
+    padding: 5px;
+    padding-bottom: 14px;
+}
