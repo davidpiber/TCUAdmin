@@ -107,7 +107,7 @@
                           <a href="/mensajesEstudiante/{{Auth::user()->id}}" class="btn btn-success">Mensajes</a>
                         </div>
                       </div>
-                    </div>
+                  </div>
         </div>
       </div>
       @if($mensajesSinleer && $mensajesSinleer > 0)
