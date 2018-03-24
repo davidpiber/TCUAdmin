@@ -56,7 +56,10 @@ class ProyectoPreaprobadoController extends Controller
         if (!Auth::check()){
             return view('welcome');
         }
-        $notasEstudiante = Nota::where('id_usuario', '=', Auth::user()->id)->count();
+        $idUsuario = Auth::user()->id;
+        $idProyecto = $request['id_proyecto'];
+
+        $notasEstudiante = Nota::where('id_usuario', '=', $idUsuario)->where('id_proyecto_preaprobado', $idProyecto)->count();
         dd($notasEstudiante);
     }
 
