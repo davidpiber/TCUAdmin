@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ProyectoPreaprobado;
 use App\Nota;
+use App\Horario;
 use Illuminate\Http\Request;
 use Illuminate\Support\facades\Auth;
 use Illuminate\Support\MessageBag;
@@ -60,7 +61,28 @@ class ProyectoPreaprobadoController extends Controller
         $idProyecto = $request['id_proyecto'];
 
         $notasEstudiante = Nota::where('id_usuario', '=', $idUsuario)->where('id_proyecto_preaprobado', $idProyecto)->count();
-        dd($notasEstudiante);
+        if($notasEstudiante >= 1) {
+            $horarios = Horario::where('id_proyecto', '=', $idProyecto)->get();
+            foreach ($horarios as $horario) {
+                $horario->proyecto = ProyectoPreaprobado::where('id', '=', $horario->id_proyecto)->first();
+            }
+            
+            return view('contenedor-matricular-horarios')->with('horarios', $horarios);
+        }
+
+        return view('contenedor-matricular-horarios-error');
+
+    }
+
+    public function postMatricularHorario(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+
+        // $usuarioHorario = new 
+        
+        $request->session()->flash('success', 'Horario Matriculado con Exito');
+        return view('contenedor-matricular-horarios-error');
     }
 
 }

@@ -245,4 +245,12 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'editarNota'
     ]);
 
+
+    // matricula horario
+
+    Route::post('/matricularHorario/', [
+        'uses' => 'ProyectoPreaprobadoController@postMatricularHorario',
+        'as' => 'matricularHorario'
+    ]);
+
 });
