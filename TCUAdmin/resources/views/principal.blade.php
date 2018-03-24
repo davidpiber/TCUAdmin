@@ -72,7 +72,7 @@
             <div class="card-body">
               <h5 class="card-title">Ingresar Notas</h5>
               <p class="card-text">Ingresar Notas para los Estudiantes.</p>
-              <a href="/ingresarNotas" class="btn btn-success">Empresas</a>
+              <a href="/ingresarNotas" class="btn btn-success">Ingresar Notas</a>
             </div>
           </div>
         </div>
@@ -108,19 +108,23 @@
                         </div>
                       </div>
                   </div>
+                  @if($mensajesSinleer && $mensajesSinleer > 0)
+                  <div class="col-sm-6">
+                      <div class="card card-style">
+                        <div class="card-body">
+                          <h5 class="card-title">Tienes mensajes que requieren tu atención.</h5>
+                          <div class="alert alert-danger">
+                              <ul>
+                                  <li>Tienes {{$mensajesSinleer}} mensajes sin leer.</li>
+                              </ul>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                @endif
         </div>
       </div>
-      @if($mensajesSinleer && $mensajesSinleer > 0)
-        <div class="panel panel-default">
-          <div class="panel-body">
-              <div class="alert alert-warning">
-                  <ul>
-                      <li>Tienes {{$mensajesSinleer}} mensajes sin leer.</li>
-                  </ul>
-              </div>
-          </div>
-        </div>
-      @endif
+
 @endif
       <!-- Site footer -->
       <footer class="footer navbar-fixed-bottom">
