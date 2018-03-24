@@ -44,7 +44,7 @@
           <div class="card card-style">
             <div class="card-body">
               <h5 class="card-title">Horarios</h5>
-              <p class="card-text">Visualizar, Editar Y Borrar Horarios.</p>
+              <p class="card-text">Visualizar, Editar y Borrar Horarios.</p>
               <a href="/horarios" class="btn btn-success">Horarios</a>
             </div>
           </div>
@@ -53,7 +53,7 @@
           <div class="card card-style">
             <div class="card-body">
               <h5 class="card-title">Empresas</h5>
-              <p class="card-text">Visualizar, Editar Y Borrar Mensajes.</p>
+              <p class="card-text">Visualizar, Editar y Borrar Mensajes.</p>
               <a href="/empresas" class="btn btn-success">Empresas</a>
             </div>
           </div>
@@ -62,7 +62,7 @@
           <div class="card card-style">
             <div class="card-body">
               <h5 class="card-title">Mensajes</h5>
-              <p class="card-text">Visualizar, Editar Y Borrar Empresas.</p>
+              <p class="card-text">Visualizar, Editar y Borrar Empresas.</p>
               <a href="/mensajes" class="btn btn-success">Empresas</a>
             </div>
           </div>
@@ -80,7 +80,7 @@
           <div class="card card-style">
             <div class="card-body">
               <h5 class="card-title">Notas Estudiantes</h5>
-              <p class="card-text">Visualizar, Editar Y Borrar Horarios.</p>
+              <p class="card-text">Visualizar, Editar y Borrar Notas.</p>
               <a href="/notasEstudiantes" class="btn btn-success">Notas Estudiantes</a>
             </div>
           </div>

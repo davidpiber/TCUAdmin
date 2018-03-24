@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ProyectoPreaprobado;
-use App\Propuesta;
+use App\Nota;
 use Illuminate\Http\Request;
 use Illuminate\Support\facades\Auth;
 use Illuminate\Support\MessageBag;
@@ -50,6 +50,14 @@ class ProyectoPreaprobadoController extends Controller
 
         return view('contenedor-registrar-horarios')->with('proyectos', $proyectos);
         //return view('contenedor-ingresar-horarios'); js data tables example
+    }
+
+    public function postHorariosPropuesta(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        $notasEstudiante = Nota::where('id_usuario', '=', Auth::user()->id)->count();
+        dd($notasEstudiante);
     }
 
 }
