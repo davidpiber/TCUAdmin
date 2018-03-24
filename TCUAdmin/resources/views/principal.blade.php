@@ -88,25 +88,39 @@
       </div>
 </div>
 @else
-        @include('includes.info-estudiantes')
-<div class="container col-md-6 contenedor-principal">
-      <div class="panel panel-default">
-        <div class="panel-body">
-        <a class="btn btn-success register-button" href="/tipoPropuesta" role="button">Ingresar Propuesta de TCU</a>
+      <div class="container panel panel-default">
+        <div class="row main-panel">
+            <div class="col-sm-6">
+                <div class="card card-style">
+                  <div class="card-body">
+                    <h5 class="card-title">Ingresar Propuesta TCU</h5>
+                    <p class="card-text">Ingresar la propuesta de TCU, preaprobada o Empresa.</p>
+                    <a href="/tipoPropuesta" class="btn btn-success">Ingresar Propuesta</a>
+                  </div>
+                </div>
+              </div>
+                  <div class="col-sm-6">
+                      <div class="card card-style">
+                        <div class="card-body">
+                          <h5 class="card-title">Mensajes</h5>
+                          <p class="card-text">Ver los mensajes de los administradores.</p>
+                          <a href="/mensajesEstudiante/{{Auth::user()->id}}" class="btn btn-success">Mensajes</a>
+                        </div>
+                      </div>
+                    </div>
         </div>
       </div>
-      <div class="panel panel-default">
-        <div class="panel-body">
-          @if($mensajesSinleer && $mensajesSinleer > 0)
-          <div class="alert alert-danger">
-              <ul>
-                  <li>Tienes {{$mensajesSinleer}} mensajes sin leer.</li>
-              </ul>
+      @if($mensajesSinleer && $mensajesSinleer > 0)
+        <div class="panel panel-default">
+          <div class="panel-body">
+              <div class="alert alert-warning">
+                  <ul>
+                      <li>Tienes {{$mensajesSinleer}} mensajes sin leer.</li>
+                  </ul>
+              </div>
           </div>
-          @endif
-        <a class="btn btn-success register-button" href="/mensajesEstudiante/{{Auth::user()->id}}" role="button">Mensajes</a>
-      </div>
-</div>
+        </div>
+      @endif
 @endif
       <!-- Site footer -->
       <footer class="footer navbar-fixed-bottom">
