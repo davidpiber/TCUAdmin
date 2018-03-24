@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="header navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -13,7 +13,7 @@
                     <a class="navbar-brand" rel="home" href="/principal" title="Buy Sell Rent Everyting">
                             <img style="max-width:171px; margin-top: -7px;margin-left: -13px;" src="/images/logo.jpg">
                     </a>
-                    <a class="navbar-brand" href="/principal">TCU ADMIN</a>
+                    <a class="header-text navbar-brand" href="/principal">TCU ADMIN</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
