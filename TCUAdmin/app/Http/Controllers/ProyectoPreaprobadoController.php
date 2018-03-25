@@ -62,14 +62,14 @@ class ProyectoPreaprobadoController extends Controller
         $idProyecto = $request['id_proyecto'];
 
         $notasEstudiante = Nota::where('id_usuario', '=', $idUsuario)->where('id_proyecto_preaprobado', $idProyecto)->count();
-
+        $proyecto = ProyectoPreaprobado::where('id', '=', $idProyecto)->first();
         if($notasEstudiante >= 1) {
             $horarios = Horario::where('id_proyecto', '=', $idProyecto)->get();
             foreach ($horarios as $horario) {
                 $horario->proyecto = ProyectoPreaprobado::where('id', '=', $horario->id_proyecto)->first();
             }
             
-            return view('contenedor-matricular-horarios')->with('horarios', $horarios);
+            return view('contenedor-matricular-horarios')->with('horarios', $horarios)->with('proyecto', $proyecto);
         }
         return view('contenedor-matricular-horarios-error')->with('notas', $notasEstudiante);;
 
@@ -82,7 +82,7 @@ class ProyectoPreaprobadoController extends Controller
         $id_horario = $request['id_horario'];
         $id_usuario = $request['id_usuario'];
         // En caso de que algun otro estudiante haya matriculdo en este segundo
-        $cantidadIntructores = Horario::where('id', '=', $idProyecto)->first()->cantidad_instructores;
+        $cantidadIntructores = Horario::where('id', '=', $id_horario)->first()->cantidad_instructores;
 
         if($cantidadIntructores && $cantidadIntructores > 0) {
             $usuarioHorario = new UsuarioHorario();

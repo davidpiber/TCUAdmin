@@ -54,3 +54,7 @@
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
     background-color: #27ae60 !important;
 }
+
+.alert-message {
+    padding: 4px !important;
+}

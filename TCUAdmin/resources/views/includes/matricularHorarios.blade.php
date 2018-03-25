@@ -1,5 +1,5 @@
 <div class="container">
-        <h1>Horarios</h1>
+<h1>Horarios Disponibles para {{$proyecto->nombre_proyecto}}</h1>
         <table class="table">
             <thead>
               <tr>
@@ -17,12 +17,19 @@
                             <td>{{$horario->cantidad_instructores}}</td>
                             <td>{{$horario->horario}}</td>
                             <td>
-                                <form action="{{ route('matricularHorario') }}" method="post">
-                                    <button type="submit" class="btn btn-sm btn-success">Matricular</button>
-                                    <input name="id_horario" type="hidden" value="{{$horario->id}}">
-                                    <input name="id_usuario" type="hidden" value="{{Auth::user()->id}}">
-                                    {{ csrf_field() }}
-                                </form>
+                                @if($horario->cantidad_instructores > 0)
+                                        <form action="{{ route('matricularHorario') }}" method="post">
+                                            <button type="submit" class="btn btn-sm btn-success">Matricular</button>
+                                            <input name="id_horario" type="hidden" value="{{$horario->id}}">
+                                            <input name="id_usuario" type="hidden" value="{{Auth::user()->id}}">
+                                            {{ csrf_field() }}
+                                        </form>
+
+                                @else
+                                <div class="alert alert-danger alert-message">
+                                        <p>No hay Espacios Disponibles.</p>
+                                </div>
+                                @endif
                             </td>
                         </tr>  
                     @endforeach
