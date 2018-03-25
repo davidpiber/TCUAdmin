@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\ProyectoPreaprobado;
 use App\Nota;
 use App\Horario;
+use App\UsuarioHorario;
 use Illuminate\Http\Request;
 use Illuminate\Support\facades\Auth;
 use Illuminate\Support\MessageBag;
@@ -61,6 +62,7 @@ class ProyectoPreaprobadoController extends Controller
         $idProyecto = $request['id_proyecto'];
 
         $notasEstudiante = Nota::where('id_usuario', '=', $idUsuario)->where('id_proyecto_preaprobado', $idProyecto)->count();
+
         if($notasEstudiante >= 1) {
             $horarios = Horario::where('id_proyecto', '=', $idProyecto)->get();
             foreach ($horarios as $horario) {
@@ -69,8 +71,7 @@ class ProyectoPreaprobadoController extends Controller
             
             return view('contenedor-matricular-horarios')->with('horarios', $horarios);
         }
-
-        return view('contenedor-matricular-horarios-error');
+        return view('contenedor-matricular-horarios-error')->with('notas', $notasEstudiante);;
 
     }
 
@@ -78,11 +79,25 @@ class ProyectoPreaprobadoController extends Controller
         if (!Auth::check()){
             return view('welcome');
         }
+        $id_horario = $request['id_horario'];
+        $id_usuario = $request['id_usuario'];
+        // En caso de que algun otro estudiante haya matriculdo en este segundo
+        $cantidadIntructores = Horario::where('id', '=', $idProyecto)->first()->cantidad_instructores;
 
-        // $usuarioHorario = new 
+        if($cantidadIntructores && $cantidadIntructores > 0) {
+            $usuarioHorario = new UsuarioHorario();
+            $usuarioHorario->id_horario = $id_horario;
+            $usuarioHorario->id_usuario = $id_usuario;
+            $usuarioHorario->save();
+
+            //actualizamos la cantidad de instructores para el horario.
+            $horario = Horario::find($id_horario);
+            $horario->cantidad_instructores	 = $horario->cantidad_instructores - 1;
+            $horario->save();
+            $request->session()->flash('success', 'Horario Matriculado con Exito');
+        }
         
-        $request->session()->flash('success', 'Horario Matriculado con Exito');
-        return view('contenedor-matricular-horarios-error');
+        return redirect()->route('principal');
     }
 
 }
