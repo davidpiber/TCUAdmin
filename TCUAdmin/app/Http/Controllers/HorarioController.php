@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Horario;
 use App\ProyectoPreaprobado;
+use App\UsuarioHorario;
+use App\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\facades\Auth;
 use Illuminate\Support\MessageBag;
@@ -111,6 +113,21 @@ class HorarioController extends Controller
         }
 
         return view('contenedor-horarios')->with('horarios', $horarios);
+    }
+
+    public function gethorariosMatriculados(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        $usuarioHorarios = UsuarioHorario::all();
+
+        foreach($usuarioHorarios as $usuarioHorario) {
+            $usuarioHorario->horario = Horario::where('id', '=', $usuarioHorario->id_horario)->first();
+            $usuarioHorario->usuario = Usuario::where('id', '=', $usuarioHorario->id_usuario)->first();
+            $usuarioHorario->proyecto = ProyectoPreaprobado::where('id', '=', $usuarioHorario->horario->id_proyecto)->first();
+        }
+
+        return view('contenedor-horarios-matriculados')->with('usuarioHorarios', $usuarioHorarios);
     }
 
 }

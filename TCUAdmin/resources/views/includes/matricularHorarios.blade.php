@@ -24,7 +24,6 @@
                                             <input name="id_usuario" type="hidden" value="{{Auth::user()->id}}">
                                             {{ csrf_field() }}
                                         </form>
-
                                 @else
                                 <div class="alert alert-danger alert-message">
                                         <p>No hay Espacios Disponibles.</p>

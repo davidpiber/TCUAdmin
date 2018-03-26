@@ -253,4 +253,10 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'matricularHorario'
     ]);
 
+    Route::get('/horariosMatriculados/{id_usuario}', [
+        'uses' => 'HorarioController@gethorariosMatriculados',
+        'as' => 'horariosMatriculados'
+    ]);
+
+
 });

@@ -122,6 +122,15 @@
                       </div>
                   </div>
                 @endif
+                <div class="col-sm-6">
+                    <div class="card card-style">
+                      <div class="card-body">
+                        <h5 class="card-title">Horarios Matriculados</h5>
+                        <p class="card-text">Ver los horarios mariculados.</p>
+                        <a href="/horariosMatriculados/{{Auth::user()->id}}" class="btn btn-success">Horarios Matriculados</a>
+                      </div>
+                    </div>
+                </div>
         </div>
       </div>
 
