@@ -52,9 +52,9 @@
         <div class="col-sm-6">
           <div class="card card-style">
             <div class="card-body">
-              <h5 class="card-title">Empresas</h5>
-              <p class="card-text">Visualizar, Editar y Borrar Mensajes.</p>
-              <a href="/empresas" class="btn btn-success">Empresas</a>
+              <h5 class="card-title">Propuestas Empresas</h5>
+              <p class="card-text">Visualizar propuestas de Empresas de los Estudiantes.</p>
+              <a href="/empresas" class="btn btn-success">Propuestas Empresas</a>
             </div>
           </div>
         </div>
