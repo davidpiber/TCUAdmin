@@ -85,16 +85,25 @@ class ProyectoPreaprobadoController extends Controller
         $cantidadIntructores = Horario::where('id', '=', $id_horario)->first()->cantidad_instructores;
 
         if($cantidadIntructores && $cantidadIntructores > 0) {
-            $usuarioHorario = new UsuarioHorario();
-            $usuarioHorario->id_horario = $id_horario;
-            $usuarioHorario->id_usuario = $id_usuario;
-            $usuarioHorario->save();
 
-            //actualizamos la cantidad de instructores para el horario.
-            $horario = Horario::find($id_horario);
-            $horario->cantidad_instructores	 = $horario->cantidad_instructores - 1;
-            $horario->save();
-            $request->session()->flash('success', 'Horario Matriculado con Exito');
+            //Revisamos si ya el usuario amtriculo este horario.
+            $cantidadMatriculas = UsuarioHorario::where('id_usuario', '=', $id_usuario)->count();
+
+            if($cantidadMatriculas == 0) {
+                $usuarioHorario = new UsuarioHorario();
+                $usuarioHorario->id_horario = $id_horario;
+                $usuarioHorario->id_usuario = $id_usuario;
+                $usuarioHorario->save();
+    
+                //actualizamos la cantidad de instructores para el horario.
+                $horario = Horario::find($id_horario);
+                $horario->cantidad_instructores	 = $horario->cantidad_instructores - 1;
+                $horario->save();
+                $request->session()->flash('success', 'Horario Matriculado con Exito');
+            } else {
+                $request->session()->flash('error', 'Este Horario ya fue Matriculado.');
+                return redirect()->route('principal');
+            }
         }
         
         return redirect()->route('principal');

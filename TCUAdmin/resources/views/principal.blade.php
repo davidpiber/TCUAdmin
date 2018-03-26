@@ -63,7 +63,7 @@
             <div class="card-body">
               <h5 class="card-title">Mensajes</h5>
               <p class="card-text">Visualizar, Editar y Borrar Empresas.</p>
-              <a href="/mensajes" class="btn btn-success">Empresas</a>
+              <a href="/mensajes" class="btn btn-success">Mensajes</a>
             </div>
           </div>
         </div>
@@ -85,6 +85,15 @@
             </div>
           </div>
         </div>
+        <div class="col-sm-6">
+            <div class="card card-style">
+              <div class="card-body">
+                <h5 class="card-title">Horarios Estudiantes</h5>
+                <p class="card-text">Visualizar, Editar y Borrar matriculas de Horarios de Estudiantes.</p>
+                <a href="/horariosMatriculadosEstudiantes" class="btn btn-success">Horarios Estudiantes</a>
+              </div>
+            </div>
+          </div>
       </div>
 </div>
 @else
