@@ -140,6 +140,15 @@
                       </div>
                     </div>
                 </div>
+                <div class="col-sm-6">
+                    <div class="card card-style">
+                      <div class="card-body">
+                        <h5 class="card-title">Editar Propuesta Ingresada</h5>
+                        <p class="card-text">Editar la Propuesta de Empresa Ingresada.</p>
+                        <a href="/editarPropuestaEmpresa/{{Auth::user()->id}}" class="btn btn-success">Editar Propuesta</a>
+                      </div>
+                    </div>
+                </div>
         </div>
       </div>
 
