@@ -81,11 +81,16 @@ class HorarioController extends Controller
         $idHorario = $request['id_horario'];
         $horario = $request['horario'];
         $cantidadInstructores = $request['cantidad_instructores'];
+        $ubicacion = $request['ubicacion'];
+        $fecha_inicio = $request['fecha_inicio'];
+
 
         if($idHorario && $horario && $cantidadInstructores){
             $horarioaActualizar = Horario::find($idHorario);
             $horarioaActualizar->horario = $horario;
             $horarioaActualizar->cantidad_instructores = $cantidadInstructores;
+            $horarioaActualizar->ubicacion = $ubicacion;
+            $horarioaActualizar->fecha_inicio = $fecha_inicio;
             $horarioaActualizar->save();
         }
         $request->session()->flash('success', 'Horario Editado con Exito');
