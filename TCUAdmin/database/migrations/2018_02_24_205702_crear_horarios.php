@@ -17,6 +17,8 @@ class CrearHorarios extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('horario');
+            $table->string('ubicacion');
+            $table->string('fecha_inicio');
             $table->integer('cantidad_instructores');
             $table->integer('id_proyecto')->unsigned();
             $table->foreign('id_proyecto')->references('id')->on('proyecto_preaprobados');

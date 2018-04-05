@@ -19,7 +19,7 @@ class CrearNotas extends Migration
             $table->string('descripcion');
             $table->string('nota');
             $table->integer('id_proyecto_preaprobado')->unsigned();
-            $table->foreign('id_proyecto_preaprobado')->references('id')->on('proyectocl_preaprobados');
+            $table->foreign('id_proyecto_preaprobado')->references('id')->on('proyecto_preaprobados');
             $table->integer('id_usuario')->unsigned();
             $table->foreign('id_usuario')->references('id')->on('usuarios');
             $table->rememberToken();
