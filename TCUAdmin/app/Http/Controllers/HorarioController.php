@@ -25,7 +25,9 @@ class HorarioController extends Controller
         $this->validate($request, [
             'id_horario' => 'required|max:255',
             'horario' => 'required|max:255',
-            'cantidad_instructores' => 'required|max:255'
+            'cantidad_instructores' => 'required|max:255',
+            'ubicacion' => 'required|max:255',
+            'fecha_inicio' => 'required|max:255'
         ]);
     }
 
@@ -34,6 +36,8 @@ class HorarioController extends Controller
         $horario->horario = $request['horario'];
         $horario->cantidad_instructores = $request['cantidad_instructores'];
         $horario->id_proyecto = $request['id_proyecto'];
+        $horario->ubicacion = $request['ubicacion'];
+        $horario->fecha_inicio = $request['fecha_inicio'];
 
         return $horario;
     }

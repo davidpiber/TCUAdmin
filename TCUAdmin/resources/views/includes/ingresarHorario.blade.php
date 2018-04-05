@@ -17,6 +17,14 @@
                 <input class="form-control" type="text" maxlength="255" name="horario" value={{Request::old('horario')}}>
             </div>
             <div class="form-group">
+                <label for="fecha_inicio">Fecha Inicio:</label>
+                <input class="form-control" type="text" maxlength="255" name="fecha_inicio" value={{Request::old('fecha_inicio')}}>
+            </div>
+            <div class="form-group">
+                <label for="ubicacion">Ubicación:</label>
+                <input class="form-control" type="text" maxlength="255" name="ubicacion" value={{Request::old('ubicacion')}}>
+            </div>
+            <div class="form-group">
                     <label for="cantidad_instructores">Cantidad de Instructores:</label>
                     <input class="form-control" type="number" maxlength="255" name="cantidad_instructores" value={{Request::old('cantidad_instructores')}}>
             </div>
