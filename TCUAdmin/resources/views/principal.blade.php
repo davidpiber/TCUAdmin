@@ -41,6 +41,15 @@
           </div>
         </div>
         <div class="col-sm-6">
+            <div class="card card-style">
+              <div class="card-body">
+                <h5 class="card-title">Horarios Matriculados por Estudiantes</h5>
+                <p class="card-text">Visualizar, Editar y Borrar matriculas de Horarios de Estudiantes.</p>
+                <a href="/horariosMatriculadosEstudiantes" class="btn btn-success">Horarios Estudiantes</a>
+              </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
           <div class="card card-style">
             <div class="card-body">
               <h5 class="card-title">Proyecto Preaprobado</h5>
@@ -49,6 +58,15 @@
             </div>
           </div>
         </div>
+        <div class="col-sm-6">
+            <div class="card card-style">
+              <div class="card-body">
+                <h5 class="card-title">Notas Estudiantes</h5>
+                <p class="card-text">Visualizar, Editar y Borrar Notas.</p>
+                <a href="/notasEstudiantes" class="btn btn-success">Notas Estudiantes</a>
+              </div>
+            </div>
+          </div>
         <div class="col-sm-6">
           <div class="card card-style">
             <div class="card-body">
@@ -59,6 +77,15 @@
           </div>
         </div>
         <div class="col-sm-6">
+            <div class="card card-style">
+              <div class="card-body">
+                <h5 class="card-title">Ingresar Notas</h5>
+                <p class="card-text">Ingresar Notas para los Estudiantes.</p>
+                <a href="/ingresarNotas" class="btn btn-success">Ingresar Notas</a>
+              </div>
+            </div>
+          </div>
+        <div class="col-sm-6">
           <div class="card card-style">
             <div class="card-body">
               <h5 class="card-title">Mensajes</h5>
@@ -67,33 +94,6 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-6">
-          <div class="card card-style">
-            <div class="card-body">
-              <h5 class="card-title">Ingresar Notas</h5>
-              <p class="card-text">Ingresar Notas para los Estudiantes.</p>
-              <a href="/ingresarNotas" class="btn btn-success">Ingresar Notas</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="card card-style">
-            <div class="card-body">
-              <h5 class="card-title">Notas Estudiantes</h5>
-              <p class="card-text">Visualizar, Editar y Borrar Notas.</p>
-              <a href="/notasEstudiantes" class="btn btn-success">Notas Estudiantes</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="card card-style">
-              <div class="card-body">
-                <h5 class="card-title">Horarios Estudiantes</h5>
-                <p class="card-text">Visualizar, Editar y Borrar matriculas de Horarios de Estudiantes.</p>
-                <a href="/horariosMatriculadosEstudiantes" class="btn btn-success">Horarios Estudiantes</a>
-              </div>
-            </div>
-          </div>
       </div>
 </div>
 @else
