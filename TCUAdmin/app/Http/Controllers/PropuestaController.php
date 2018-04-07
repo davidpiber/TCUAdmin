@@ -52,6 +52,8 @@ class PropuestaController extends Controller
     }
 
     public function postIngresarPropuesta(Request $request) {
+        $request->file('propuesta')->store('public');
+
         if (!Auth::check()){
             return view('welcome');
         }
@@ -64,7 +66,7 @@ class PropuestaController extends Controller
     public function getTipoPropuesta(Request $request){
         if (!Auth::check()){
             return view('welcome');
-        }
+        } 
         return view('contenedor-tipo-propuesta');
         
     }

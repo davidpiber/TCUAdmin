@@ -4,6 +4,15 @@
 @if(Auth::user() && Auth::user()->admin)
 <div class="panel panel-default container">
       <div class="row main-panel">
+          <div class="col-sm-6">
+              <div class="card card-style">
+                <div class="card-body">
+                  <h5 class="card-title">Horarios</h5>
+                  <p class="card-text">Visualizar, Editar y Borrar Horarios.</p>
+                  <a href="/horarios" class="btn btn-success">Horarios</a>
+                </div>
+              </div>
+            </div>
         <div class="col-sm-6">
           <div class="card card-style">
             <div class="card-body">
@@ -13,6 +22,15 @@
             </div>
           </div>
         </div>
+        <div class="col-sm-6">
+            <div class="card card-style">
+              <div class="card-body">
+                <h5 class="card-title">Ingresar Horarios</h5>
+                <p class="card-text">Ingresar Horarios para los proyectos preaprobados.</p>
+                <a href="/ingresarHorarios" class="btn btn-success">Ingresar Horarios</a>
+              </div>
+            </div>
+          </div>
         <div class="col-sm-6">
           <div class="card card-style">
             <div class="card-body">
@@ -26,7 +44,7 @@
           <div class="card card-style">
             <div class="card-body">
               <h5 class="card-title">Proyecto Preaprobado</h5>
-              <p class="card-text">Ingresar un Proyecto Prearobado.</p>
+              <p class="card-text">Ingresar un Proyecto Preaprobado.</p>
               <a href="/ingresarProyectoPreaprobado" class="btn btn-success">Proyecto Preaprobado</a>
             </div>
           </div>
@@ -34,27 +52,9 @@
         <div class="col-sm-6">
           <div class="card card-style">
             <div class="card-body">
-              <h5 class="card-title">Ingresar Horarios</h5>
-              <p class="card-text">Ingresar Horarios para los proyectos preaprobados.</p>
-              <a href="/ingresarHorarios" class="btn btn-success">Ingresar Horarios</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="card card-style">
-            <div class="card-body">
-              <h5 class="card-title">Horarios</h5>
-              <p class="card-text">Visualizar, Editar y Borrar Horarios.</p>
-              <a href="/horarios" class="btn btn-success">Horarios</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="card card-style">
-            <div class="card-body">
-              <h5 class="card-title">Propuestas Empresas</h5>
-              <p class="card-text">Visualizar propuestas de Empresas de los Estudiantes.</p>
-              <a href="/empresas" class="btn btn-success">Propuestas Empresas</a>
+              <h5 class="card-title">Empresas</h5>
+              <p class="card-text">Visualizar información de Empresas usadas en propuestas.</p>
+              <a href="/empresas" class="btn btn-success">Empresas</a>
             </div>
           </div>
         </div>
@@ -62,7 +62,7 @@
           <div class="card card-style">
             <div class="card-body">
               <h5 class="card-title">Mensajes</h5>
-              <p class="card-text">Visualizar, Editar y Borrar Empresas.</p>
+              <p class="card-text">Visualizar, Editar y Borrar Mensajes.</p>
               <a href="/mensajes" class="btn btn-success">Mensajes</a>
             </div>
           </div>
