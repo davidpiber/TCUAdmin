@@ -14,7 +14,7 @@ class UsuarioController extends Controller {
         if (!Auth::check()) {
             return view('welcome');
         } else {
-            return view('principal');
+            return redirect()->route('principal');
         }
     }
 
@@ -23,7 +23,7 @@ class UsuarioController extends Controller {
             return view('welcome');
         }
         $mensajesSinleer = Mensaje::where('id_usuario', '=', Auth::user()->id)->where('visto', false)->count();
-        return view('principal')->with('mensajesSinleer', $mensajesSinleer);;
+        return view('principal')->with('mensajesSinleer', $mensajesSinleer);
     }
 
     public function getRegistrar() {
