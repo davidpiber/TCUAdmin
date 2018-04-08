@@ -88,6 +88,16 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'ingresarPropuesta'
     ]);
 
+    Route::get('/editarPropuesta', [
+        'uses' => 'PropuestaController@getEditarPropuesta',
+        'as' => 'editarPropuesta'
+    ]);
+
+    Route::post('/editarPropuesta', [
+        'uses' => 'PropuestaController@postEditarPropuesta',
+        'as' => 'editarPropuesta'
+    ]);
+
     Route::get('/propuesta/{id}', [
         'uses' => 'PropuestaController@getPropuesta',
         'as' => 'propuesta'

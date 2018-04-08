@@ -17,7 +17,35 @@ class PropuestaController extends Controller
         if (!Auth::check()){
             return view('welcome');
         }
+        // Validamos que exista alguna propuesta existente.
+        $propuestaExistente = Propuesta::where('id_usuario', '=', Auth::user()->id);
+        if ($propuestaExistente->count() > 0) {
+            return redirect()->route('editarPropuesta');
+        }
         return view('contenedor-registro-propuesta');
+    }
+
+    public function getEditarPropuesta() {
+        $propuesta = Propuesta::where('id_usuario', '=', Auth::user()->id)->first();
+        return view('contenedor-editar-propuesta')->with('propuesta', $propuesta);
+    }
+
+    public function postEditarPropuesta(Request $request) {
+        $propuesta = Propuesta::where('id_usuario', '=', Auth::user()->id)->first();
+    
+        if($propuesta->cantidad_revisiones == 1) {
+            dd('entre al 1');
+            $propuesta->nombre_propuesta = $request->propuesta->getClientOriginalName();
+            $newFileName = substr($propuesta->nombre_propuesta, 0, strlen($propuesta->nombre_propuesta)-5);
+            $request->file('propuesta')->storeAs('public', $newFileName.' - Revision #1.docx');
+            $propuesta->save();
+            $request->session()->flash('success', 'Propuesta Actulizada con Exito');
+        }
+
+        if($propuesta->cantidad_revisiones > 1) {
+            $request->session()->flash('error', 'La cantidad máxima de Revisiones para su Propuesta ha sido alcanzada, por favor contacte al Administrador.');
+        }
+        return redirect()->route('principal');
     }
 
     private function validarRegistroPropuesta(Request $request) {
@@ -51,18 +79,9 @@ class PropuestaController extends Controller
         $this->validarRegistroPropuesta($request);
         $nuevaPropuesta = $this->crearPropuesta($request);
 
-        // Validamos que exista alguna propuesta existente.
-        $propuestaExistente = Propuesta::where('id', '=', Auth::user()->id);
-        // dd($propuestaExistente->count());
-
-        // validamos que haya una propuesa, si no hay insertamos
-        if ($propuestaExistente->count() > 0) {
-            if($propuestaExistente->cantidad_revisiones == 0) {
-                $request->file('propuesta')->storeAs('public', $nuevaPropuesta->nombre_propuesta);
-                $nuevaPropuesta->save();
-                $request->session()->flash('success', 'Propuesta Ingresada con Exito');
-            }
-        }
+        $request->file('propuesta')->storeAs('public', $nuevaPropuesta->nombre_propuesta);
+        $nuevaPropuesta->save();
+        $request->session()->flash('success', 'Propuesta Ingresada con Exito');
 
         return redirect()->route('ingresarEmpresa');
     }
