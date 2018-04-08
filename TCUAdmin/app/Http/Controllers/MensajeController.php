@@ -76,7 +76,22 @@ class MensajeController extends Controller {
         $mensaje = Mensaje::find($request['id']);
 
         return view('contenedor-editar-mensaje')->with('mensaje', $mensaje);
+    }
 
+    public function editarMensaje(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        $mensaje = Mensaje::find($request['id']);
+        $mensaje->titulo = $request['titulo'];
+        $mensaje->descripcion = $request['descripcion'];
+        $mensaje->id_usuario = $request['id_usuario'];
+        $mensaje->fecha = new DateTime();
+        $mensaje->id_usuario_envia = $request['id_usuario_envia'];
+        $mensaje->visto = false;
+        $mensaje->save();
+
+        return redirect()->route('mensajes');
     }
 
     public function getMensajesEstudiante(Request $request) {

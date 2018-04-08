@@ -11,7 +11,7 @@
                     </div>
                 @endif
             </div>
-            <form action="{{route('registrarMensaje')}}" method="post">
+            <form action="{{route('editarMensaje')}}" method="post">
                 <div class="form-group">
                     <label for="titulo">Titulo:</label>
                     <input class="form-control" type="text" name="titulo" value="{{$mensaje->titulo}}">
@@ -20,6 +20,7 @@
                     <label for="descripcion">Descripción:</label>
                     <textarea class="form-control" rows="5" maxlength="255" name="descripcion">{{$mensaje->descripcion}}</textarea>
                 </div>
+                <input name="id" type="hidden" value="{{$mensaje->id}}">
                 <input name="id_usuario" type="hidden" value="{{$mensaje->id_usuario}}">
                 <input name="id_usuario_envia" type="hidden" value="{{$mensaje->id_usuario_envia}}">
                 <button type="Submit" class="btn btn-success">Guardar Mensaje</button>

@@ -186,6 +186,11 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'editarMensaje'
     ]);
 
+    Route::post('/editarMensaje', [
+        'uses' => 'MensajeController@editarMensaje',
+        'as' => 'editarMensaje'
+    ]);
+
     Route::get('/mensajesEstudiante/{id}', [
         'uses' => 'MensajeController@getMensajesEstudiante',
         'as' => 'mensajesEstudiante'

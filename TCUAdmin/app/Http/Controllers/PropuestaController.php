@@ -36,7 +36,6 @@ class PropuestaController extends Controller
             $propuesta->nombre_propuesta = $fileName;
             $propuesta->cantidad_revisiones = 0;
             $propuesta->id_usuario = Auth::user()->id;
-            $request->file('propuesta')->storeAs('public', $fileName);
             $propuesta->aprobada = false;
         }
         
@@ -51,8 +50,20 @@ class PropuestaController extends Controller
         }
         $this->validarRegistroPropuesta($request);
         $nuevaPropuesta = $this->crearPropuesta($request);
-        $nuevaPropuesta->save();
-        $request->session()->flash('success', 'Propuesta Ingresada con Exito');
+
+        // Validamos que exista alguna propuesta existente.
+        $propuestaExistente = Propuesta::where('id', '=', Auth::user()->id);
+        // dd($propuestaExistente->count());
+
+        // validamos que haya una propuesa, si no hay insertamos
+        if ($propuestaExistente->count() > 0) {
+            if($propuestaExistente->cantidad_revisiones == 0) {
+                $request->file('propuesta')->storeAs('public', $nuevaPropuesta->nombre_propuesta);
+                $nuevaPropuesta->save();
+                $request->session()->flash('success', 'Propuesta Ingresada con Exito');
+            }
+        }
+
         return redirect()->route('ingresarEmpresa');
     }
 
