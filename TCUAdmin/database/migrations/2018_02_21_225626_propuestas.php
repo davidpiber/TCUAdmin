@@ -17,28 +17,13 @@ class Propuestas extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('titulo');
-            $table->string('justificacion');
-            $table->string('descripcion_beneficiarios');
-            $table->string('objetivo_general');
-            $table->string('estrategia_trabajo');
-            $table->string('recursos_necesarios');
-            $table->string('pertenencia_solucion');
-            $table->string('resultados_esperados');
-            $table->string('cronograma');
+            $table->string('nombre_propuesta');
+            $table->integer('cantidad_revisiones');
             $table->integer('id_usuario')->unsigned();
             $table->foreign('id_usuario')->references('id')->on('usuarios');
-            $table->boolean('activa');
+            $table->boolean('aprobada');
             $table->rememberToken();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        //
-    }
 }

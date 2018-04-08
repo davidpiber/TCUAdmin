@@ -8,6 +8,7 @@ use App\ProyectoPreaprobado;
 use Illuminate\Http\Request;
 use Illuminate\Support\facades\Auth;
 use Illuminate\Support\MessageBag;
+use Illuminate\Validation\Rule;
 
 class PropuestaController extends Controller
 {
@@ -22,37 +23,28 @@ class PropuestaController extends Controller
     private function validarRegistroPropuesta(Request $request) {
         $this->validate($request, [
             'titulo' => 'required|max:255',
-            'justificacion' => 'required|max:255',
-            'descripcion_beneficiarios' => 'required|max:255',
-            'objetivo_general' => 'required|max:255',
-            'estrategia_trabajo' => 'required|max:255',
-            'recursos_necesarios' => 'required|max:255',
-            'pertenencia_solucion' => 'required|max:255',
-            'resultados_esperados' => 'required|max:255',
-            'cronograma' => 'required|max:255',
-            'id_usuario' => 'required|max:255'
+            'propuesta' => 'required|file'
         ]);
     }
 
-    private function crearPropuesta(Request $request){
-        $propuesta = new Propuesta();
-        $propuesta->titulo = $request['titulo'];
-        $propuesta->justificacion = $request['justificacion'];
-        $propuesta->descripcion_beneficiarios = $request['descripcion_beneficiarios'];
-        $propuesta->objetivo_general = $request['objetivo_general'];
-        $propuesta->estrategia_trabajo = $request['estrategia_trabajo'];
-        $propuesta->recursos_necesarios = $request['recursos_necesarios'];
-        $propuesta->pertenencia_solucion = $request['pertenencia_solucion'];
-        $propuesta->resultados_esperados = $request['resultados_esperados'];
-        $propuesta->cronograma = $request['cronograma'];
-        $propuesta->id_usuario = $request['id_usuario'];
-        $propuesta->activa = false;
+    private function crearPropuesta(Request $request) {
 
+        $propuesta = new Propuesta();
+        if ($request->hasFile('propuesta')) {
+            $fileName = $request->propuesta->getClientOriginalName();
+            $propuesta->titulo = $request['titulo'];
+            $propuesta->nombre_propuesta = $fileName;
+            $propuesta->cantidad_revisiones = 0;
+            $propuesta->id_usuario = Auth::user()->id;
+            $request->file('propuesta')->storeAs('public', $fileName);
+            $propuesta->aprobada = false;
+        }
+        
         return $propuesta;
     }
 
+    // Validamos la propuesta.
     public function postIngresarPropuesta(Request $request) {
-        $request->file('propuesta')->store('public');
 
         if (!Auth::check()){
             return view('welcome');
@@ -60,6 +52,7 @@ class PropuestaController extends Controller
         $this->validarRegistroPropuesta($request);
         $nuevaPropuesta = $this->crearPropuesta($request);
         $nuevaPropuesta->save();
+        $request->session()->flash('success', 'Propuesta Ingresada con Exito');
         return redirect()->route('ingresarEmpresa');
     }
 
