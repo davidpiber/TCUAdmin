@@ -43,6 +43,7 @@ class EmpresaController extends Controller
         $this->validarRegistroEmpresa($request);
         $nuevaEmpresa = $this->crearEmpresa($request);
         $nuevaEmpresa->save();
+        $request->session()->flash('success', 'Empresa Ingresada con Exito');
         return redirect()->route('principal');
     }
 
