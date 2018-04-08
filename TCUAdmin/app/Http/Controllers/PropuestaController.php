@@ -34,7 +34,6 @@ class PropuestaController extends Controller
         $propuesta = Propuesta::where('id_usuario', '=', Auth::user()->id)->first();
     
         if($propuesta->cantidad_revisiones == 1) {
-            dd('entre al 1');
             $propuesta->nombre_propuesta = $request->propuesta->getClientOriginalName();
             $newFileName = substr($propuesta->nombre_propuesta, 0, strlen($propuesta->nombre_propuesta)-5);
             $request->file('propuesta')->storeAs('public', $newFileName.' - Revision #1.docx');

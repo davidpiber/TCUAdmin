@@ -145,7 +145,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Editar Propuesta Ingresada</h5>
                         <p class="card-text">Editar la Propuesta de Empresa Ingresada.</p>
-                        <a href="/editarPropuestaEmpresa/{{Auth::user()->id}}" class="btn btn-success">Editar Propuesta</a>
+                        <a href="/editarPropuesta" class="btn btn-success">Editar Propuesta</a>
                       </div>
                     </div>
                 </div>
