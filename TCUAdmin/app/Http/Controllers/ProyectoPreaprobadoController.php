@@ -119,6 +119,29 @@ class ProyectoPreaprobadoController extends Controller
         return view('contenedor-proyectos-preaprobados')->with('proyectos', $proyectos);
     }
 
+
+    public function postEliminarProyecto(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+
+        $idproyecto = $request['id'];
+
+        if($idproyecto){
+            $proyectoaBorrar = ProyectoPreaprobado::find($idproyecto);
+            $horario = Horario::where('id_proyecto', '=',$proyectoaBorrar->id)->first();
+
+            if($horario && $horario->count() > 0) {
+                $request->session()->flash('error', 'Existe un Horario relacionado con esta Proyecto, debe eliminar el Horario antes de eliminar este Proyecto.');
+                return redirect()->route('proyectosPreaprobados');
+            }
+
+            $proyectoaBorrar->Delete();
+        }
+        $request->session()->flash('success', 'Proyecto Eliminado con Exito');
+        return redirect()->route('proyectosPreaprobados');
+    }
+
     
 
 }
