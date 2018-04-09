@@ -5,7 +5,7 @@
           <tr>
             <th scope="col">Proyecto</th>
             <th scope="col">Cantidad Instructores</th>
-            <th scope="col">Ubicacion</th>
+            <th scope="col">Ubicación</th>
             <th scope="col">Fecha Inicio</th>
             <th scope="col">Horario</th>
             <th scope="col">Editar</th>

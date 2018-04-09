@@ -6,7 +6,7 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Primer Apellido</th>
                 <th scope="col">Segundo Apellido</th>
-                <th scope="col">Cedula</th>
+                <th scope="col">Cédula</th>
                 <th scope="col">Carnet Universidad</th>
                 <th scope="col">Correo Universidad</th>
                 <th scope="col">Correo Personal</th>

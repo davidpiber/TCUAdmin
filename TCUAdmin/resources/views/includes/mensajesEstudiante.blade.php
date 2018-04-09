@@ -3,9 +3,9 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">Titulo</th>
+            <th scope="col">Título</th>
             <th scope="col">Fecha</th>
-            <th scope="col">descripcion</th>
+            <th scope="col">Descripción</th>
             <th scope="col">Administrador</th>
             <th scope="col">Visto</th>
             <th scope="col">Ver Mensaje</th>

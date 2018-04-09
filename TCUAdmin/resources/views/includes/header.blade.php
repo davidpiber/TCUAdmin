@@ -39,7 +39,7 @@
                                         <a href="/logout"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Cerrar Session
+                                            Cerrar Sesión
                                         </a>
 
                                         <form id="logout-form" action="/logout" method="POST" style="display: none;">

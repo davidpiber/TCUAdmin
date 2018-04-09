@@ -8,6 +8,8 @@
                 <th scope="col">Estudiante</th>
                 <th scope="col">Ver</th>
                 <th scope="col">Borrar</th>
+                <th scope="col">Aprobar</th>
+                <th scope="col">Reprobar</th>
               </tr>
             </thead>
             <tbody>
@@ -23,6 +25,20 @@
                             <td>
                                 <form action="{{ route('borrarPropuesta') }}" method="post">
                                     <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
+                                    <input name="id" type="hidden" value="{{$propuesta->id}}">
+                                    {{ csrf_field() }}
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{{ route('aprobarPropuesta') }}" method="post">
+                                    <button type="submit" class="btn btn-success btn-sm">Aprobar</button>
+                                    <input name="id" type="hidden" value="{{$propuesta->id}}">
+                                    {{ csrf_field() }}
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{{ route('reprobarPropuesta') }}" method="post">
+                                    <button type="submit" class="btn btn-danger btn-sm">Reprobar</button>
                                     <input name="id" type="hidden" value="{{$propuesta->id}}">
                                     {{ csrf_field() }}
                                 </form>

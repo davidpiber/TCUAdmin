@@ -25,7 +25,7 @@
             <input class="form-control" type="text" name="segundo_apellido" value="{{$estudiante->segundo_apellido}}">
         </div>
         <div class="form-group">
-            <label for="nombre">Cedula:</label>
+            <label for="nombre">Cédula:</label>
             <input class="form-control" type="text" name="cedula" value="{{$estudiante->cedula}}">
         </div>
         <div class="form-group">
@@ -41,7 +41,7 @@
             <input class="form-control" type="email" name="correo_personal" value="{{$estudiante->correo_personal}}">
         </div>
         <div class="form-group">
-            <label for="genero">Genero:</label>
+            <label for="genero">Género:</label>
             <select name="genero" class="form-control">
                 @if($estudiante->genero == 'masculino')
                     <option value="masculino" selected>Masculino</option>
@@ -79,7 +79,7 @@
                 </select>
         </div>
         <div class="form-group">
-            <label for="reset_password">Reset Password:</label>
+            <label for="reset_password">Cambiar Contraseña a Latina2018*:</label>
             <select name="reset_password" class="form-control">
                 <option value="false">No</option>
                 <option value="true">Si</option>

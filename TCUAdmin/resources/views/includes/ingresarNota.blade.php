@@ -17,7 +17,7 @@
                 <input class="form-control" type="text" name="nota" value="{{$usuario->nota}}">
             </div>
             <div class="form-group">
-                <label for="descripcion">Descripcion:</label>
+                <label for="descripcion">Descripción:</label>
                 <input class="form-control" type="text" name="descripcion" value="{{$usuario->descripcion}}">
             </div>
             <div class="form-group">

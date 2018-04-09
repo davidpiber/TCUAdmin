@@ -72,6 +72,16 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'aprobarPropuestas'
     ]);
 
+    Route::post('/aprobarPropuesta', [
+        'uses' => 'PropuestaController@postAprobarPropuesta',
+        'as' => 'aprobarPropuesta'
+    ]);
+
+    Route::post('/reprobarPropuesta', [
+        'uses' => 'PropuestaController@postReprobarPropuesta',
+        'as' => 'reprobarPropuesta'
+    ]);
+
     Route::post('/tipoPropuesta', [
         'uses' => 'PropuestaController@postTipoPropuesta',
         'as' => 'tipoPropuesta'

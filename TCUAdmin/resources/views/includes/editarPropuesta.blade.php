@@ -13,7 +13,7 @@
         @endif
         <form enctype= "multipart/form-data" action="{{route('editarPropuesta')}}" method="post">
             <div class="form-group">
-                <label for="titulo">Titulo:</label>
+                <label for="titulo">Título:</label>
                 <input class="form-control" type="text" maxlength="255" name="titulo" value="{{$propuesta->titulo}}">
             </div>
             <div class="form-group">

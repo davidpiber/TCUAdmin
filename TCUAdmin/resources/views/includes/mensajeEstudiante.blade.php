@@ -1,7 +1,7 @@
 <div class="col-md-6">
     <h3>Enviado por: {{$mensaje->usuarioEnvia->nombre}}</h3>
         <div class="form-group">
-            <label for="titulo">Titulo:</label>
+            <label for="titulo">Título:</label>
             <input disabled class="form-control" type="text" name="titulo" value="{{$mensaje->titulo}}">
         </div>
         <div class="form-group">

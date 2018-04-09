@@ -17,7 +17,7 @@
           <div class="card card-style">
             <div class="card-body">
               <h5 class="card-title">Estudiantes</h5>
-              <p class="card-text">Visualizar, Editar, Borrar y enviar mensajes a Estudiantes.</p>
+              <p class="card-text">Visualizar, Editar, Borrar y enviar Mensajes a Estudiantes.</p>
               <a href="/estudiantes" class="btn btn-success">Estudiantes</a>
             </div>
           </div>
@@ -26,7 +26,7 @@
             <div class="card card-style">
               <div class="card-body">
                 <h5 class="card-title">Ingresar Horarios</h5>
-                <p class="card-text">Ingresar Horarios para los proyectos Pre Aprobados.</p>
+                <p class="card-text">Ingresar Horarios para los Proyectos Pre Aprobados.</p>
                 <a href="/ingresarHorarios" class="btn btn-success">Ingresar Horarios</a>
               </div>
             </div>
@@ -35,7 +35,7 @@
           <div class="card card-style">
             <div class="card-body">
               <h5 class="card-title">Propuestas Estudiantes</h5>
-              <p class="card-text">Aprobar propuestas de los Estudiantes.</p>
+              <p class="card-text">Aprobar Propuestas de los Estudiantes.</p>
               <a href="/aprobarPropuestas" class="btn btn-success">Propuestas Estudiantes</a>
             </div>
           </div>
@@ -44,7 +44,7 @@
             <div class="card card-style">
               <div class="card-body">
                 <h5 class="card-title">Horarios Matriculados por Estudiantes</h5>
-                <p class="card-text">Visualizar, Editar y Borrar matriculas de Horarios de Estudiantes.</p>
+                <p class="card-text">Visualizar, Editar y Borrar Matrículas de Horarios de Estudiantes.</p>
                 <a href="/horariosMatriculadosEstudiantes" class="btn btn-success">Horarios Estudiantes</a>
               </div>
             </div>
@@ -71,7 +71,7 @@
           <div class="card card-style">
             <div class="card-body">
               <h5 class="card-title">Empresas</h5>
-              <p class="card-text">Visualizar información de Empresas usadas en propuestas.</p>
+              <p class="card-text">Visualizar Información de Empresas usadas en Propuestas.</p>
               <a href="/empresas" class="btn btn-success">Empresas</a>
             </div>
           </div>
@@ -103,7 +103,7 @@
                 <div class="card card-style">
                   <div class="card-body">
                     <h5 class="card-title">Ingresar Propuesta TCU</h5>
-                    <p class="card-text">Ingresar la propuesta de TCU, Pre Aprobada o Empresa.</p>
+                    <p class="card-text">Ingresar la Propuesta de TCU, Pre Aprobada o Empresa.</p>
                     <a href="/tipoPropuesta" class="btn btn-success">Ingresar Propuesta</a>
                   </div>
                 </div>
@@ -112,7 +112,7 @@
                       <div class="card card-style">
                         <div class="card-body">
                           <h5 class="card-title">Mensajes</h5>
-                          <p class="card-text">Ver los mensajes de los administradores.</p>
+                          <p class="card-text">Ver los Mensajes de los Administradores.</p>
                           <a href="/mensajesEstudiante/{{Auth::user()->id}}" class="btn btn-success">Mensajes</a>
                         </div>
                       </div>
@@ -121,7 +121,7 @@
                   <div class="col-sm-6">
                       <div class="card card-style">
                         <div class="card-body">
-                          <h5 class="card-title">Tienes mensajes que requieren tu atención.</h5>
+                          <h5 class="card-title">Tienes Mensajes que requieren tu atención.</h5>
                           <div class="alert alert-danger">
                               <ul>
                                   <li>Tienes {{$mensajesSinleer}} mensajes sin leer.</li>
@@ -135,8 +135,8 @@
                     <div class="card card-style">
                       <div class="card-body">
                         <h5 class="card-title">Horarios Matriculados</h5>
-                        <p class="card-text">Ver los horarios mariculados.</p>
-                        <a href="/horariosMatriculados/{{Auth::user()->id}}" class="btn btn-success">Horarios Matriculados</a>
+                        <p class="card-text">Ver los Horarios Matrículados.</p>
+                        <a href="/horariosMatriculados/{{Auth::user()->id}}" class="btn btn-success">Horarios Matrículados</a>
                       </div>
                     </div>
                 </div>
