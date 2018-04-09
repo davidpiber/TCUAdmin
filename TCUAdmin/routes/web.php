@@ -108,6 +108,11 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'aprobarPropuesta'
     ]);
 
+    Route::post('/borrarPropuesta', [
+        'uses' => 'PropuestaController@postBorrarPropuesta',
+        'as' => 'borrarPropuesta'
+    ]);
+    
     // Empresas
 
     Route::get('/ingresarEmpresa', [

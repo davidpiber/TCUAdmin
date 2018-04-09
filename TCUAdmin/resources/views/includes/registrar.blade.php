@@ -25,7 +25,7 @@
             <input class="form-control" type="text" name="segundo_apellido" value={{Request::old('segundo_apellido')}}>
         </div>
         <div class="form-group">
-            <label for="nombre">Cedula:</label>
+            <label for="nombre">Cédula:</label>
             <input class="form-control" type="text" name="cedula" value={{Request::old('cedula')}}>
         </div>
         <div class="form-group">
@@ -41,11 +41,11 @@
             <input class="form-control" type="email" name="correo_personal" value={{Request::old('correo_personal')}}>
         </div>
         <div class="form-group">
-            <label for="nombre">Password:</label>
+            <label for="nombre">Contraseña:</label>
             <input class="form-control" type="password" name="password">
         </div>
         <div class="form-group">
-            <label for="genero">Genero:</label>
+            <label for="genero">Género:</label>
             <select name="genero" class="form-control">
                 <option value="masculino">Masculino</option>
                 <option value="femenino">Femenino</option>

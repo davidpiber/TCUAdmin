@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Propuesta;
 use App\Usuario;
+use App\Empresa;
 use App\ProyectoPreaprobado;
 use Illuminate\Http\Request;
 use Illuminate\Support\facades\Auth;
@@ -90,6 +91,27 @@ class PropuestaController extends Controller
             return view('welcome');
         } 
         return view('contenedor-tipo-propuesta');
+        
+    }
+
+    public function postBorrarPropuesta(Request $request){
+        if (!Auth::check()){
+            return view('welcome');
+        }
+
+        $idPropuesta = $request['id'];
+
+        if($idPropuesta){
+            $propuestaaBorrar = Propuesta::find($idPropuesta);
+            $propuestaEmpresa = Empresa::find($propuestaaBorrar->id_propuesta);
+            if ($propuestaEmpresa && $propuestaEmpresa->count() > 0) {
+                $request->session()->flash('error', 'Existe un empresa relacionada con esta propuesta, debe eliminar la empresa antes de eliminar esta propuesta.');
+                return redirect()->route('aprobarPropuestas');;
+            }
+            $propuestaaBorrar->Delete();
+        }
+        $request->session()->flash('success', 'Propuesta Eliminada con Exito');
+        return redirect()->route('aprobarPropuestas');;
         
     }
 

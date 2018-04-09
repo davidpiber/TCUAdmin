@@ -6,7 +6,8 @@
                 <th scope="col">Titulo</th>
                 <th scope="col">Estado</th>
                 <th scope="col">Estudiante</th>
-                <th scope="col">Ver Propuesta</th>
+                <th scope="col">Ver</th>
+                <th scope="col">Borrar</th>
               </tr>
             </thead>
             <tbody>
@@ -18,6 +19,13 @@
                             <td>{{$propuesta->estudiante->nombre.' '.$propuesta->estudiante->primer_apellido}}</td>
                             <td>
                                 <a class="btn btn-warning btn-sm" href="/propuesta/{{$propuesta->id}}" role="button">Ver Propuesta</a>
+                            </td>
+                            <td>
+                                <form action="{{ route('borrarPropuesta') }}" method="post">
+                                    <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
+                                    <input name="id" type="hidden" value="{{$propuesta->id}}">
+                                    {{ csrf_field() }}
+                                </form>
                             </td>
                         </tr>  
                     @endforeach
