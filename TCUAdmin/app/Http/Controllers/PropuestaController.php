@@ -208,5 +208,6 @@ class PropuestaController extends Controller
 
         return redirect()->route('aprobarPropuestas');
     }
+    
 
 }

@@ -157,6 +157,24 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'ingresarHorarios'
     ]);
 
+    Route::get('/proyectosPreaprobados', [
+        'uses' => 'ProyectoPreaprobadoController@getProyectosPreaprobados',
+        'as' => 'proyectosPreaprobados'
+    ]);
+
+    Route::get('/editarproyecto/{id}', [
+        'uses' => 'ProyectoPreaprobadoController@editarproyecto',
+        'as' => 'editarproyecto'
+    ]);
+    
+    Route::post('/eliminarProyecto', [
+        'uses' => 'ProyectoPreaprobadoController@postEliminarProyecto',
+        'as' => 'eliminarProyecto'
+    ]);
+
+
+    
+
     // datatables
     Route::get('/proyectos', function (Request $request) {
         return datatables()->of(ProyectoPreaprobado::query())->toJson();

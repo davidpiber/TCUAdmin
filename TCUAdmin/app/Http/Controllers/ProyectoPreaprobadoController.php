@@ -9,6 +9,7 @@ use App\UsuarioHorario;
 use Illuminate\Http\Request;
 use Illuminate\Support\facades\Auth;
 use Illuminate\Support\MessageBag;
+use DateTime;
 
 class ProyectoPreaprobadoController extends Controller
 {
@@ -108,5 +109,16 @@ class ProyectoPreaprobadoController extends Controller
         
         return redirect()->route('principal');
     }
+
+    public function getProyectosPreaprobados(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        $proyectos = ProyectoPreaprobado::all();
+
+        return view('contenedor-proyectos-preaprobados')->with('proyectos', $proyectos);
+    }
+
+    
 
 }

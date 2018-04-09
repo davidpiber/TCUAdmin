@@ -155,7 +155,7 @@ class UsuarioController extends Controller {
         }
         $estudiantes = Usuario::all();
 
-        return view('contenedor-estudiantes')->with('estudiantes', $estudiantes);;
+        return view('contenedor-estudiantes')->with('estudiantes', $estudiantes);
     }
 
     public function EditarEstudiante(Request $request) {
