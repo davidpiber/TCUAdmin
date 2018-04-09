@@ -135,6 +135,11 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'ingresarEmpresa'
     ]);
 
+    Route::get('/empresas', [
+        'uses' => 'EmpresaController@getEmpresas',
+        'as' => 'empresas'
+    ]);
+
     // Proyectos preaprobados
 
     Route::get('/ingresarProyectoPreaprobado', [

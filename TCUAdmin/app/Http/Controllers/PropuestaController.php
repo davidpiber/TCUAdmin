@@ -36,9 +36,11 @@ class PropuestaController extends Controller
         $propuesta = Propuesta::where('id_usuario', '=', Auth::user()->id)->first();
     
         if($propuesta->cantidad_revisiones == 1) {
+            // Borramos la propuesta anterior.
+            Storage::delete($propuesta->nombre_propuesta);
+
             $propuesta->nombre_propuesta = $request->propuesta->getClientOriginalName();
-            $newFileName = substr($propuesta->nombre_propuesta, 0, strlen($propuesta->nombre_propuesta)-5);
-            $request->file('propuesta')->storeAs('public', $newFileName.' - Revision #1.docx');
+            $request->file('propuesta')->storeAs('public', $propuesta->nombre_propuesta);
             $propuesta->save();
             $request->session()->flash('success', 'Propuesta Actulizada con Exito');
         }
@@ -180,16 +182,19 @@ class PropuestaController extends Controller
         return view('contenedor-reprobar-propuesta')->with('propuesta', $propuesta);;
     }
 
-    public function postReprobarPropuestaGuardar(Request $request){
+    public function postReprobarPropuestaGuardar(Request $request) {
         if (!Auth::check()){
             return view('welcome');
         }
+
+        $this->validarRegistroPropuesta($request);
 
         // Buscamos la propuesta.
         $propuesta = Propuesta::find($request['id']);
 
         // Borramos la propuesta anterior.
-        Storage::delete($propuesta->nombre_propuesta);
+        Storage::delete(storage_path('app/public/'.$propuesta->nombre_propuesta));
+
 
         $propuesta->aprobada = false;
         $propuesta->cantidad_revisiones = 1;
