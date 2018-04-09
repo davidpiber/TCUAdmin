@@ -149,6 +149,30 @@
                       </div>
                     </div>
                 </div>
+                <div class="col-sm-6">
+                    <div class="card card-style">
+                      <div class="card-body">
+                        <h5 class="card-title">Guía para elaboración del TCU</h5>
+                        <a class="btn btn-info" href="{{Storage::url('')}}" download="{{Storage::url($propuesta->nombre_propuesta)}}">
+                            <span class="glyphicon glyphicon-download"></span>Descargar Guía
+                          </a>
+                      </div>
+                    </div>
+                </div>
+                @if($propuesta && $propuesta->cantidad_revisiones == 1)
+                  <div class="col-sm-6">
+                      <div class="card card-style">
+                        <div class="card-body">
+                          <h5 class="card-title">Tu Propuesta tiene cambios que requieren tu Atención, descarga la Propuesta, corrige los Cambios y vuelva a subirla al Sistema.</h5>
+                          <div class="alert alert-danger">
+                            <a class="btn btn-info" href="{{Storage::url($propuesta->nombre_propuesta)}}" download="{{Storage::url($propuesta->nombre_propuesta)}}">
+                              <span class="glyphicon glyphicon-download"></span>Descargar Propuesta
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                @endif
         </div>
       </div>
 
