@@ -103,7 +103,8 @@ class PropuestaController extends Controller
 
         if($idPropuesta){
             $propuestaaBorrar = Propuesta::find($idPropuesta);
-            $propuestaEmpresa = Empresa::find($propuestaaBorrar->id_propuesta);
+            $propuestaEmpresa = Empresa::where('id_propuesta', '=',$propuestaaBorrar->id)->first();
+
             if ($propuestaEmpresa && $propuestaEmpresa->count() > 0) {
                 $request->session()->flash('error', 'Existe un empresa relacionada con esta propuesta, debe eliminar la empresa antes de eliminar esta propuesta.');
                 return redirect()->route('aprobarPropuestas');;
