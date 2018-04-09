@@ -17,7 +17,7 @@
                 <input class="form-control" type="text" maxlength="255" name="titulo" value="{{$propuesta->titulo}}">
             </div>
             <div class="form-group">
-                <label for="titulo">Subir archivo de Propuesta:</label>
+                <label for="titulo">Subir Archivo de Propuesta:</label>
                 <input class="form-control" type="file" name="propuesta">
             </div>
             <input name="id" type="hidden" value="{{$propuesta->id}}">
