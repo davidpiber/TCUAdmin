@@ -71,7 +71,7 @@
           <div class="card card-style">
             <div class="card-body">
               <h5 class="card-title">Empresas</h5>
-              <p class="card-text">Visualizar Información de Empresas usadas en Propuestas.</p>
+              <p class="card-text">Visualizar Información de Empresas Registradas en Propuestas.</p>
               <a href="/empresas" class="btn btn-success">Empresas</a>
             </div>
           </div>
@@ -155,8 +155,8 @@
 @endif
       <!-- Site footer -->
       <footer class="footer navbar-fixed-bottom">
-        <p class="footer-text">Universidad latina de Costa Rica</p>
-        <p class="footer-text">Heredia , Costa Rica, Rincón de Sabanilla<br>
+        <p class="footer-text">Universidad Latina de Costa Rica.</p>
+        <p class="footer-text">Heredia , Costa Rica, Rincón de Sabanilla.<br>
           <i class="fa fa-phone-square"></i>Phone : (506) 2277-8261<br>
           <i class="fa fa-envelope"></i>E-mail: <a class="mail-link" href="mailto:infosistemas@ulatina.cr">infosistemas@ulatina.cr</a><br>
         </p>
