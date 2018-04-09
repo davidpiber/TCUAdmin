@@ -20,6 +20,7 @@
             <label for="titulo">Subir Archivo de Propuesta con Comentarios:</label>
             <input class="form-control" type="file" name="propuesta">
         </div>
+        <input name="id" type="hidden" value="{{$propuesta->id}}">
         <button type="Submit" class="btn btn-success">Subir Archivo</button>
         {{ csrf_field() }}
     </form>

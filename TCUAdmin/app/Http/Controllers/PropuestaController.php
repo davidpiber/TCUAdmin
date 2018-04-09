@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\facades\Auth;
 use Illuminate\Support\MessageBag;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 
 class PropuestaController extends Controller
 {
@@ -177,6 +178,30 @@ class PropuestaController extends Controller
         $request->session()->flash('warning', 'Propuesta Reprobada, Ingrese la Propuesta con sus Comentarios.');
 
         return view('contenedor-reprobar-propuesta')->with('propuesta', $propuesta);;
+    }
+
+    public function postReprobarPropuestaGuardar(Request $request){
+        if (!Auth::check()){
+            return view('welcome');
+        }
+
+        // Buscamos la propuesta.
+        $propuesta = Propuesta::find($request['id']);
+
+        // Borramos la propuesta anterior.
+        Storage::delete($propuesta->nombre_propuesta);
+
+        $propuesta->aprobada = false;
+        $propuesta->cantidad_revisiones = 1;
+
+        // Guardamos la propuesta Subida por el Administrador.
+        $propuesta->nombre_propuesta = $request->propuesta->getClientOriginalName();
+        $request->file('propuesta')->storeAs('public', $propuesta->nombre_propuesta);
+        
+        $propuesta->save();
+        $request->session()->flash('success', 'Propuesta Ingresada con Exito.');
+
+        return redirect()->route('aprobarPropuestas');
     }
 
 }
