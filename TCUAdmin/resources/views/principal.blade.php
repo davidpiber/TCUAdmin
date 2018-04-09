@@ -149,31 +149,46 @@
                       </div>
                     </div>
                 </div>
+        </div>
+      </div>
+      <div class="container panel panel-default">
+          <h3 class="card-title">Guías para proyectos Pre Aprobados</h3>
+          <div class="row main-panel">
+              <div class="col-sm-6">
+                  <div class="card card-style">
+                    <div class="card-body">
+                      <h5 class="card-title">Guía para elaboración del TCU</h5>
+                      <a class="btn btn-info" href="{{Storage::url('GuiaAnteproyo2017.docx')}}" download="{{Storage::url('GuiaAnteproyo2017.docx')}}">
+                          <span class="glyphicon glyphicon-download"></span>Descargar Guía
+                        </a>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-sm-6">
+                  <div class="card card-style">
+                    <div class="card-body">
+                      <h5 class="card-title">Guía para Proyecto Pre Aprobado RoboTico</h5>
+                      <a class="btn btn-info" href="{{Storage::url('robotico.pdf')}}" download="{{Storage::url('robotico.pdf')}}">
+                          <span class="glyphicon glyphicon-download"></span>Descargar Guía
+                        </a>
+                    </div>
+                  </div>
+              </div>
+              @if($propuesta && $propuesta->cantidad_revisiones == 1)
                 <div class="col-sm-6">
                     <div class="card card-style">
                       <div class="card-body">
-                        <h5 class="card-title">Guía para elaboración del TCU</h5>
-                        <a class="btn btn-info" href="{{Storage::url('')}}" download="{{Storage::url($propuesta->nombre_propuesta)}}">
-                            <span class="glyphicon glyphicon-download"></span>Descargar Guía
+                        <h5 class="card-title">Tu Propuesta tiene cambios que requieren tu Atención, descarga la Propuesta, corrige los Cambios y vuelva a subirla al Sistema.</h5>
+                        <div class="alert alert-danger">
+                          <a class="btn btn-info" href="{{Storage::url($propuesta->nombre_propuesta)}}" download="{{Storage::url($propuesta->nombre_propuesta)}}">
+                            <span class="glyphicon glyphicon-download"></span>Descargar Propuesta
                           </a>
+                        </div>
                       </div>
                     </div>
                 </div>
-                @if($propuesta && $propuesta->cantidad_revisiones == 1)
-                  <div class="col-sm-6">
-                      <div class="card card-style">
-                        <div class="card-body">
-                          <h5 class="card-title">Tu Propuesta tiene cambios que requieren tu Atención, descarga la Propuesta, corrige los Cambios y vuelva a subirla al Sistema.</h5>
-                          <div class="alert alert-danger">
-                            <a class="btn btn-info" href="{{Storage::url($propuesta->nombre_propuesta)}}" download="{{Storage::url($propuesta->nombre_propuesta)}}">
-                              <span class="glyphicon glyphicon-download"></span>Descargar Propuesta
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                  </div>
-                @endif
-        </div>
+              @endif
+          </div>
       </div>
 
 @endif
