@@ -1,5 +1,5 @@
 <div class="col-md-6">
-    <h3>Ingresar Proyecto Preaprobado</h3>
+    <h3>Ingresar Proyecto Pre Aprobado</h3>
     <div>
         @if (count($errors) > 0)
             <div class="alert alert-danger">

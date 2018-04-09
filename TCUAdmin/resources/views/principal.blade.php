@@ -26,7 +26,7 @@
             <div class="card card-style">
               <div class="card-body">
                 <h5 class="card-title">Ingresar Horarios</h5>
-                <p class="card-text">Ingresar Horarios para los proyectos preaprobados.</p>
+                <p class="card-text">Ingresar Horarios para los proyectos Pre Aprobados.</p>
                 <a href="/ingresarHorarios" class="btn btn-success">Ingresar Horarios</a>
               </div>
             </div>
@@ -52,9 +52,9 @@
         <div class="col-sm-6">
           <div class="card card-style">
             <div class="card-body">
-              <h5 class="card-title">Proyecto Preaprobado</h5>
-              <p class="card-text">Ingresar un Proyecto Preaprobado.</p>
-              <a href="/ingresarProyectoPreaprobado" class="btn btn-success">Proyecto Preaprobado</a>
+              <h5 class="card-title">Proyecto Pre Aprobado</h5>
+              <p class="card-text">Ingresar un Proyecto Pre Aprobado.</p>
+              <a href="/ingresarProyectoPreaprobado" class="btn btn-success">Proyecto Pre Aprobado</a>
             </div>
           </div>
         </div>

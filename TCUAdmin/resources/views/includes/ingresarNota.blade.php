@@ -21,7 +21,7 @@
                 <input class="form-control" type="text" name="descripcion" value="{{$usuario->descripcion}}">
             </div>
             <div class="form-group">
-                <label for="proyecto_preaprobado">Proyectos Preaprobados:</label>
+                <label for="proyecto_preaprobado">Proyectos Pre Aprobados:</label>
                 <select name="proyecto_preaprobado" class="form-control">
                     @foreach($proyectosPreaprobados as $proyecto)
                         <option value="{{$proyecto->id}}">{{$proyecto->nombre_proyecto}}</option>
