@@ -15,7 +15,7 @@
         <div class="form-group">
             <label for="preaprobada">Tipo Propuesta:</label>
             <select name="preaprobada" class="form-control">
-                <option value="true">Preaprobada</option>
+                <option value="true">Pre Aprobada</option>
                 <option value="false">Empresa</option>
             </select>
         </div>

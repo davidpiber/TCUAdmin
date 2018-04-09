@@ -103,7 +103,7 @@
                 <div class="card card-style">
                   <div class="card-body">
                     <h5 class="card-title">Ingresar Propuesta TCU</h5>
-                    <p class="card-text">Ingresar la propuesta de TCU, preaprobada o Empresa.</p>
+                    <p class="card-text">Ingresar la propuesta de TCU, Pre Aprobada o Empresa.</p>
                     <a href="/tipoPropuesta" class="btn btn-success">Ingresar Propuesta</a>
                   </div>
                 </div>
