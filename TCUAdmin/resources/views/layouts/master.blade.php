@@ -40,5 +40,8 @@
         @if(session()->has('error'))
         <script>toastr.error("{{session('error')}}")</script>
         @endif
+        @if(session()->has('warning'))
+        <script>toastr.warning("{{session('warning')}}")</script>
+        @endif
     </body>
 </html>

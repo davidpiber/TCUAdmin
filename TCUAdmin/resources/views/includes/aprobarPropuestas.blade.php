@@ -17,7 +17,7 @@
                     @foreach ($propuestas as $propuesta)
                         <tr>
                             <td>{{$propuesta->titulo}}</td>
-                            <td>{{$propuesta->activa ? "Activa" : "Inactiva" }}</td>
+                            <td>{{$propuesta->aprobada ? "Aprobada" : "Pendiente" }}</td>
                             <td>{{$propuesta->estudiante->nombre.' '.$propuesta->estudiante->primer_apellido}}</td>
                             <td>
                                 <a class="btn btn-warning btn-sm" href="/propuesta/{{$propuesta->id}}" role="button">Ver Propuesta</a>

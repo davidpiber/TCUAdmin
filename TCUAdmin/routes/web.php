@@ -82,6 +82,11 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'reprobarPropuesta'
     ]);
 
+    Route::post('/reprobarPropuestaGuardar', [
+        'uses' => 'PropuestaController@postReprobarPropuestaGuardar',
+        'as' => 'reprobarPropuestaGuardar'
+    ]);
+
     Route::post('/tipoPropuesta', [
         'uses' => 'PropuestaController@postTipoPropuesta',
         'as' => 'tipoPropuesta'
@@ -111,11 +116,6 @@ Route::group(['middleware' => ['web']], function() {
     Route::get('/propuesta/{id}', [
         'uses' => 'PropuestaController@getPropuesta',
         'as' => 'propuesta'
-    ]);
-
-    Route::post('/aprobarPropuesta', [
-        'uses' => 'PropuestaController@postAprobarPropuesta',
-        'as' => 'aprobarPropuesta'
     ]);
 
     Route::post('/borrarPropuesta', [

@@ -158,12 +158,25 @@ class PropuestaController extends Controller
             return view('welcome');
         }
 
-        $propuestaaActualizar = Propuesta::find($request['id_propuesta']);
-        $propuestaaActualizar->activa = true;
+        $propuestaaActualizar = Propuesta::find($request['id']);
+        $propuestaaActualizar->aprobada = true;
         $propuestaaActualizar->save();
         $request->session()->flash('success', 'Propuesta Aprobada con Exito');
 
         return redirect()->route('aprobarPropuestas');
+    }
+
+    public function postReprobarPropuesta(Request $request){
+        if (!Auth::check()){
+            return view('welcome');
+        }
+
+        $propuesta = Propuesta::find($request['id']);
+        $propuesta->aprobada = false;
+        $propuesta->save();
+        $request->session()->flash('warning', 'Propuesta Reprobada, Ingrese la Propuesta con sus Comentarios.');
+
+        return view('contenedor-reprobar-propuesta')->with('propuesta', $propuesta);;
     }
 
 }
