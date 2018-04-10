@@ -214,12 +214,8 @@
 @endif
       <!-- Site footer -->
       <footer class="footer navbar-fixed-bottom">
-       <div class="row footer-text">
-        <p class="footer-text">Universidad Latina de Costa Rica.</p>  
-        <p class="footer-text">Heredia , Costa Rica, Rincón de Sabanilla.  
-          <i class="fa fa-phone-square"></i>Phone : (506) 2277-8261   
-          <i class="fa fa-envelope"></i>E-mail:   <a class="mail-link" href="mailto:infosistemas@ulatina.cr">infosistemas@ulatina.cr</a>
-        </p>
+       <div class="row">
+        <p class="footer-text">Universidad Latina de Costa Rica - Teléfono: (506) 2277-8261 - Correo: <a class="mail-link" href="mailto:infosistemas@ulatina.cr">infosistemas@ulatina.cr</a></p> 
        </div>
       </footer>
     </div> <!-- /container -->
