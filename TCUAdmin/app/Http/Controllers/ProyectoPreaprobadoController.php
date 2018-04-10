@@ -140,7 +140,7 @@ class ProyectoPreaprobadoController extends Controller
             $horario = Horario::where('id_proyecto', '=',$proyectoaBorrar->id)->first();
 
             if($horario && $horario->count() > 0) {
-                $request->session()->flash('error', 'Existe un Horario relacionado con esta Proyecto, debe eliminar el Horario antes de eliminar este Proyecto.');
+                $request->session()->flash('warning', 'Existe un Horario relacionado con esta Proyecto, debe eliminar el Horario antes de eliminar este Proyecto.');
                 return redirect()->route('proyectosPreaprobados');
             }
 

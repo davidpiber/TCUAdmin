@@ -106,6 +106,14 @@ class HorarioController extends Controller
 
         if($idHorario){
             $horarioaBorrar = Horario::find($idHorario);
+
+            $usuarioHorario = UsuarioHorario::where('id_horario', '=',$horarioaBorrar->id)->first();
+
+            if($usuarioHorario && $usuarioHorario->count() > 0) {
+                $request->session()->flash('warning', 'Existen Estudiantes matriculados a este Horario, debe eliminar la Matricula antes de eliminar este Horario.');
+                return redirect()->route('horarios');
+            }
+
             $horarioaBorrar->Delete();
         }
         $request->session()->flash('success', 'Horario Eliminado con Exito');
