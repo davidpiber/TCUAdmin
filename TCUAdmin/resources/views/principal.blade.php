@@ -43,7 +43,7 @@
         <div class="col-sm-6">
             <div class="card card-style">
               <div class="card-body">
-                <h5 class="card-title">Horarios Matriculados por Estudiantes</h5>
+                <h5 class="card-title">Matriculas de Horarios</h5>
                 <p class="card-text">Visualizar, Editar y Borrar Matrículas de Horarios de Estudiantes.</p>
                 <a href="/horariosMatriculadosEstudiantes" class="btn btn-success">Horarios Estudiantes</a>
               </div>
