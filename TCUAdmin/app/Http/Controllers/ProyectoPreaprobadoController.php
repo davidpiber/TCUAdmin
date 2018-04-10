@@ -22,6 +22,10 @@ class ProyectoPreaprobadoController extends Controller
     }
 
     private function crearProyectoPreaprobado(Request $request){
+        if (!Auth::check()){
+            return view('welcome');
+        }
+
         $proyectoPreaprobado = new ProyectoPreaprobado();
         $proyectoPreaprobado->nombre_proyecto = $request['nombre_proyecto'];
         $proyectoPreaprobado->descripcion_proyecto = $request['descripcion_proyecto'];
@@ -31,6 +35,10 @@ class ProyectoPreaprobadoController extends Controller
     }
 
     public function postIngresarProyectoPreaprobado(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+
         $this->validarProyectoPreaprobado($request);
         $nuevoproyectoPreaprobado = $this->crearProyectoPreaprobado($request);
         $nuevoproyectoPreaprobado->save();
@@ -139,6 +147,33 @@ class ProyectoPreaprobadoController extends Controller
             $proyectoaBorrar->Delete();
         }
         $request->session()->flash('success', 'Proyecto Eliminado con Exito');
+        return redirect()->route('proyectosPreaprobados');
+    }
+
+    
+
+    public function editarproyecto(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        $proyecto = ProyectoPreaprobado::where('id', '=', $request['id'])->first();
+        return view('contenedor-editar-proyecto-preaprobado')->with('proyecto', $proyecto);
+
+    }
+
+    public function postGuardarProyectoPreaprobado(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+
+        $this->validarProyectoPreaprobado($request);
+        $proyectoAGuardar = ProyectoPreaprobado::find($request['id']); 
+        $proyectoAGuardar->nombre_proyecto = $request['nombre_proyecto'];
+        $proyectoAGuardar->descripcion_proyecto = $request['descripcion_proyecto'];
+        $proyectoAGuardar->activo = $request['activo'] && $request['activo']== 'true' ? true : false;
+
+        $proyectoAGuardar->save();
+        $request->session()->flash('success', 'Proyecto Actulizado con Exito');
         return redirect()->route('proyectosPreaprobados');
     }
 

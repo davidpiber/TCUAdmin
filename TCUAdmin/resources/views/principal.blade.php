@@ -52,9 +52,9 @@
         <div class="col-sm-6">
           <div class="card card-style">
             <div class="card-body">
-              <h5 class="card-title">Proyecto Pre Aprobado</h5>
+              <h5 class="card-title">Ingesar Proyecto Pre Aprobado</h5>
               <p class="card-text">Ingresar un Proyecto Pre Aprobado.</p>
-              <a href="/ingresarProyectoPreaprobado" class="btn btn-success">Proyecto Pre Aprobado</a>
+              <a href="/ingresarProyectoPreaprobado" class="btn btn-success">Ingresar Proyecto Pre Aprobado</a>
             </div>
           </div>
         </div>
@@ -70,7 +70,7 @@
           <div class="col-sm-6">
               <div class="card card-style">
                 <div class="card-body">
-                  <h5 class="card-title">Proyecto Pre Aprobado</h5>
+                  <h5 class="card-title">Proyectos Pre Aprobados</h5>
                   <p class="card-text">Visualizar, Editar y Borrar Proyectos Pre Aprobados.</p>
                   <a href="/proyectosPreaprobados" class="btn btn-success">Proyectos Pre Aprobados</a>
                 </div>

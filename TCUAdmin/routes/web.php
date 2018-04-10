@@ -167,6 +167,11 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'editarproyecto'
     ]);
     
+    Route::post('/guardarProyectoPreaprobado', [
+        'uses' => 'ProyectoPreaprobadoController@postGuardarProyectoPreaprobado',
+        'as' => 'guardarProyectoPreaprobado'
+    ]);
+
     Route::post('/eliminarProyecto', [
         'uses' => 'ProyectoPreaprobadoController@postEliminarProyecto',
         'as' => 'eliminarProyecto'
