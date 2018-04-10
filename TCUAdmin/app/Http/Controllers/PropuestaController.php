@@ -197,7 +197,7 @@ class PropuestaController extends Controller
 
 
         $propuesta->aprobada = false;
-        $propuesta->cantidad_revisiones = 1;
+        $propuesta->cantidad_revisiones = $propuesta->cantidad_revisiones + 1;
 
         // Guardamos la propuesta Subida por el Administrador.
         $propuesta->nombre_propuesta = $request->propuesta->getClientOriginalName();
