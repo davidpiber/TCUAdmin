@@ -147,4 +147,34 @@ class HorarioController extends Controller
         return view('contenedor-horarios-matriculados')->with('usuarioHorarios', $usuarioHorarios);
     }
 
+    public function getUsuarioHorarios(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        $usuarioHorarios = UsuarioHorario::all();
+
+        foreach($usuarioHorarios as $usuarioHorario) {
+            $usuarioHorario->horario = Horario::where('id', '=', $usuarioHorario->id_horario)->first();
+            $usuarioHorario->usuario = Usuario::where('id', '=', $usuarioHorario->id_usuario)->first();
+            $usuarioHorario->proyecto = ProyectoPreaprobado::where('id', '=', $usuarioHorario->horario->id_proyecto)->first();
+        }
+
+        return view('contenedor-horarios-matriculados-admin')->with('usuarioHorarios', $usuarioHorarios);
+    }
+
+    public function postEliminarMatriculaHorario(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+
+        $idUsuarioHorario = $request['id'];
+
+        if($idUsuarioHorario){
+            $usuarioHorarioaBorrar = UsuarioHorario::find($idUsuarioHorario);
+            $usuarioHorarioaBorrar->Delete();
+        }
+        $request->session()->flash('success', 'Matricula Eliminada con Exito');
+        return redirect()->route('horariosMatriculadosEstudiantes');
+    }
+
 }

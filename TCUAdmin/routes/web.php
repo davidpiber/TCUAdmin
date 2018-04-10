@@ -297,12 +297,10 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'eliminarNota'
     ]);
     
-
     Route::post('/editarNota/', [
         'uses' => 'NotaController@postGuardarNotaEditada',
         'as' => 'editarNota'
     ]);
-
 
     // matricula horario
 
@@ -316,5 +314,16 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'horariosMatriculados'
     ]);
 
+    //admin
+
+    Route::get('/horariosMatriculadosEstudiantes', [
+        'uses' => 'HorarioController@getUsuarioHorarios',
+        'as' => 'horariosMatriculadosEstudiantes'
+    ]);
+
+    Route::post('/eliminarMatriculaHorario', [
+        'uses' => 'HorarioController@postEliminarMatriculaHorario',
+        'as' => 'eliminarMatriculaHorario'
+    ]);    
 
 });
