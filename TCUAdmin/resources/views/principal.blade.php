@@ -158,6 +158,17 @@
                       </div>
                     </div>
                 </div>
+                @if($empresa && $empresa->count() > 0)
+                  <div class="col-sm-6">
+                    <div class="card card-style">
+                      <div class="card-body">
+                        <h5 class="card-title">Editar Empresa Ingresada</h5>
+                        <p class="card-text">Editar la Empresa Ingresada.</p>
+                        <a href="/editarEmpresa/{{$empresa->id}}" class="btn btn-success">Editar Empresa</a>
+                      </div>
+                    </div>
+                  </div>
+                @endif
         </div>
       </div>
       <div class="container panel panel-default">
@@ -203,11 +214,13 @@
 @endif
       <!-- Site footer -->
       <footer class="footer navbar-fixed-bottom">
-        <p class="footer-text">Universidad Latina de Costa Rica.</p>
-        <p class="footer-text">Heredia , Costa Rica, Rincón de Sabanilla.<br>
-          <i class="fa fa-phone-square"></i>Phone : (506) 2277-8261<br>
-          <i class="fa fa-envelope"></i>E-mail: <a class="mail-link" href="mailto:infosistemas@ulatina.cr">infosistemas@ulatina.cr</a><br>
+       <div class="row footer-text">
+        <p class="footer-text">Universidad Latina de Costa Rica.</p>  
+        <p class="footer-text">Heredia , Costa Rica, Rincón de Sabanilla.  
+          <i class="fa fa-phone-square"></i>Phone : (506) 2277-8261   
+          <i class="fa fa-envelope"></i>E-mail:   <a class="mail-link" href="mailto:infosistemas@ulatina.cr">infosistemas@ulatina.cr</a>
         </p>
+       </div>
       </footer>
     </div> <!-- /container -->
 @endSection

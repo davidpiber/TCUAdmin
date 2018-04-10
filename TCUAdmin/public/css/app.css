@@ -58,3 +58,7 @@
 .alert-message {
     padding: 4px !important;
 }
+
+.footer-text {
+    display: flex !important;
+}
