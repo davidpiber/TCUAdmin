@@ -23,7 +23,25 @@ class EmpresaController extends Controller
         ]);
     }
 
+    private function crearEmpresaaGuardar(Request $request){
+        $empresa = Empresa::find($request['id']);
+        $empresa->nombre_empresa = $request['nombre_empresa'];
+        $empresa->cedula_juridica = $request['cedula_juridica'];
+        $empresa->nombre_supervisor = $request['nombre_supervisor'];
+        $empresa->primer_apellido_supervisor = $request['primer_apellido_supervisor'];
+        $empresa->segundo_apellido_supervisor = $request['segundo_apellido_supervisor'];
+        $empresa->telefono = $request['telefono'];
+        $empresa->correo_supervisor = $request['correo_supervisor'];
+
+        return $empresa;
+    }
+
     private function crearEmpresa(Request $request){
+
+        if (!Auth::check()){
+            return view('welcome');
+        }
+
         $empresa = new Empresa();
         $empresa->nombre_empresa = $request['nombre_empresa'];
         $empresa->cedula_juridica = $request['cedula_juridica'];
@@ -40,6 +58,10 @@ class EmpresaController extends Controller
     }
 
     public function postIngresarEmpresa(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+
         $this->validarRegistroEmpresa($request);
         $nuevaEmpresa = $this->crearEmpresa($request);
         $nuevaEmpresa->save();
@@ -54,4 +76,53 @@ class EmpresaController extends Controller
         return view('contenedor-propuesta-empresa');
     }
 
+    public function getEmpresas(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+
+        $empresas = Empresa::all();
+
+        return view('contenedor-empresas')->with('empresas', $empresas);
+    }
+
+    public function getEditarEmpresa(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+        
+        $empresa = Empresa::where('id', '=',$request['id'])->first(); 
+    
+        return view('contenedor-editar-empresa')->with('empresa', $empresa);
+    }
+
+    public function postGuardarEmpresa(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+
+        $this->validarRegistroEmpresa($request);
+
+        $empresaaGuardar = $this->crearEmpresaaGuardar($request);
+
+        $empresaaGuardar->save();
+        $request->session()->flash('success', 'Empresa Editada con Exito');
+        return redirect()->route('empresas');
+    }
+
+    public function postEliminarEmpresa(Request $request) {
+        if (!Auth::check()){
+            return view('welcome');
+        }
+
+        $idEmpresa = $request['id'];
+
+        if($idEmpresa){
+            $empresaaBorrar = Empresa::find($idEmpresa);
+            $empresaaBorrar->Delete();
+        }
+        $request->session()->flash('success', 'Empresa Eliminada con Exito');
+        return redirect()->route('empresas');
+    }
+    
 }

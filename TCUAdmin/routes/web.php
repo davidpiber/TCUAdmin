@@ -140,6 +140,23 @@ Route::group(['middleware' => ['web']], function() {
         'as' => 'empresas'
     ]);
 
+    Route::get('/editarEmpresa/{id}', [
+        'uses' => 'EmpresaController@getEditarEmpresa',
+        'as' => 'editarEmpresa'
+    ]);
+
+    Route::post('/eliminarEmpresa', [
+        'uses' => 'EmpresaController@postEliminarEmpresa',
+        'as' => 'eliminarEmpresa'
+    ]);
+
+    Route::post('/guardarEmpresa', [
+        'uses' => 'EmpresaController@postGuardarEmpresa',
+        'as' => 'guardarEmpresa'
+    ]);
+
+    
+
     // Proyectos preaprobados
 
     Route::get('/ingresarProyectoPreaprobado', [
