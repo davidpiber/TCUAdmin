@@ -107,6 +107,11 @@ class EmpresaController extends Controller
 
         $empresaaGuardar->save();
         $request->session()->flash('success', 'Empresa Editada con Exito');
+
+        if (!Auth::user()->admin) {
+            return redirect()->route('principal');
+        }
+
         return redirect()->route('empresas');
     }
 

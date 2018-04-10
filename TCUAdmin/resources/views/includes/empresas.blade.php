@@ -1,5 +1,5 @@
 <div class="container">
-        <h1>Estudiantes</h1>
+        <h1>Empresas</h1>
         <table class="table">
             <thead>
               <tr>
