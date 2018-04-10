@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Usuario;
 use App\Mensaje;
 use App\Propuesta;
+use App\Empresa;
 use Illuminate\Http\Request;
 use Illuminate\Support\facades\Auth;
 use Illuminate\Support\MessageBag;
@@ -25,7 +26,11 @@ class UsuarioController extends Controller {
         }
         $mensajesSinleer = Mensaje::where('id_usuario', '=', Auth::user()->id)->where('visto', false)->count();
         $propuesta = Propuesta::where('id_usuario', '=', Auth::user()->id)->first();
-        return view('principal')->with('mensajesSinleer', $mensajesSinleer)->with('propuesta', $propuesta);
+        $empresa = new Empresa();
+        if($propuesta && $propuesta->count() > 0) {
+            $empresa = Empresa::where('id_propuesta', '=', $propuesta->id)->first();
+        }
+        return view('principal')->with('mensajesSinleer', $mensajesSinleer)->with('propuesta', $propuesta)->with('empresa', $empresa);
     }
 
     public function getRegistrar() {
