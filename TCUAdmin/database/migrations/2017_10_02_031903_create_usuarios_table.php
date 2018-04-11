@@ -15,7 +15,6 @@ class CreateUsuariosTable extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
             $table->string('nombre');
             $table->string('primer_apellido');
             $table->string('segundo_apellido');
@@ -29,6 +28,24 @@ class CreateUsuariosTable extends Migration
             $table->boolean('admin');
             $table->rememberToken();
         });
+
+
+            // Insert some stuff
+        DB::table('usuarios')->insert(
+            array(
+                'nombre' => 'adminLatina',
+                'primer_apellido' => 'adminLatina',
+                'segundo_apellido' => 'adminLatina',
+                'cedula' => '2323',
+                'carnet_universidad' => '32323',
+                'correo_universidad' => 'adminLatina2018@ulatina.net',
+                'correo_personal' => 'adminLatina2018@hotmail.com',
+                'password' => bcrypt('adminLatina2018*'),
+                'genero' => 'femenino',
+                'sede' => 'heredia',
+                'admin' => true
+            )
+        );
     }
 
     /**
