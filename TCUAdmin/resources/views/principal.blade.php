@@ -4,15 +4,15 @@
 @if(Auth::user() && Auth::user()->admin)
 <div class="panel panel-default container">
       <div class="row main-panel">
-          <div class="col-sm-6">
-              <div class="card card-style">
-                <div class="card-body">
-                  <h5 class="card-title">Horarios</h5>
-                  <p class="card-text">Visualizar, Editar y Borrar Horarios.</p>
-                  <a href="/horarios" class="btn btn-success">Horarios</a>
-                </div>
+        <div class="col-sm-6">
+          <div class="card card-style">
+              <div class="card-body">
+                <h5 class="card-title">Horarios</h5>
+                <p class="card-text">Visualizar, Editar y Borrar Horarios.</p>
+                <a href="/horarios" class="btn btn-success">Horarios</a>
               </div>
-            </div>
+          </div>
+        </div>
         <div class="col-sm-6">
           <div class="card card-style">
             <div class="card-body">
@@ -106,71 +106,74 @@
       </div>
 </div>
 @else
-      <div class="container panel panel-default">
-        <div class="row main-panel">
-            <div class="col-sm-6">
-                <div class="card card-style">
-                  <div class="card-body">
-                    <h5 class="card-title">Ingresar Propuesta TCU</h5>
-                    <p class="card-text">Ingresar la Propuesta de TCU, Pre Aprobada o Empresa.</p>
-                    <a href="/tipoPropuesta" class="btn btn-success">Ingresar Propuesta</a>
+
+<div class="panel panel-default container">
+    <div class="row main-panel">
+        <div class="col-sm-4">
+            <div class="card card-style">
+              <div class="card-body">
+                <h5 class="card-title">Ingresar Propuesta TCU</h5>
+                <p class="card-text">Ingresar la Propuesta de TCU, Pre Aprobada o Empresa.</p>
+                <a href="/tipoPropuesta" class="btn btn-success">Ingresar Propuesta</a>
+              </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card card-style">
+              <div class="card-body">
+                <h5 class="card-title">Mensajes</h5>
+                <p class="card-text">Ver los Mensajes de los Administradores.</p>
+                <a href="/mensajesEstudiante/{{Auth::user()->id}}" class="btn btn-success">Mensajes</a>
+              </div>
+            </div>
+        </div>
+        @if($mensajesSinleer && $mensajesSinleer > 0)
+          <div class="col-sm-4">
+              <div class="card card-style">
+                <div class="card-body">
+                  <h5 class="card-title">Tienes Mensajes que requieren tu atención.</h5>
+                  <div class="alert alert-danger">
+                      <ul>
+                          <li>Tienes {{$mensajesSinleer}} mensajes sin leer.</li>
+                      </ul>
                   </div>
                 </div>
               </div>
-                  <div class="col-sm-6">
-                      <div class="card card-style">
-                        <div class="card-body">
-                          <h5 class="card-title">Mensajes</h5>
-                          <p class="card-text">Ver los Mensajes de los Administradores.</p>
-                          <a href="/mensajesEstudiante/{{Auth::user()->id}}" class="btn btn-success">Mensajes</a>
-                        </div>
-                      </div>
-                  </div>
-                  @if($mensajesSinleer && $mensajesSinleer > 0)
-                  <div class="col-sm-6">
-                      <div class="card card-style">
-                        <div class="card-body">
-                          <h5 class="card-title">Tienes Mensajes que requieren tu atención.</h5>
-                          <div class="alert alert-danger">
-                              <ul>
-                                  <li>Tienes {{$mensajesSinleer}} mensajes sin leer.</li>
-                              </ul>
-                          </div>
-                        </div>
-                      </div>
-                  </div>
-                @endif
-                <div class="col-sm-6">
-                    <div class="card card-style">
-                      <div class="card-body">
-                        <h5 class="card-title">Horarios Matriculados</h5>
-                        <p class="card-text">Ver los Horarios Matrículados.</p>
-                        <a href="/horariosMatriculados/{{Auth::user()->id}}" class="btn btn-success">Horarios Matrículados</a>
-                      </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="card card-style">
-                      <div class="card-body">
-                        <h5 class="card-title">Editar Propuesta Ingresada</h5>
-                        <p class="card-text">Editar la Propuesta de Empresa Ingresada.</p>
-                        <a href="/editarPropuesta" class="btn btn-success">Editar Propuesta</a>
-                      </div>
-                    </div>
-                </div>
-                @if($empresa && $empresa->count() > 0)
-                  <div class="col-sm-6">
-                    <div class="card card-style">
-                      <div class="card-body">
-                        <h5 class="card-title">Editar Empresa Ingresada</h5>
-                        <p class="card-text">Editar la Empresa Ingresada.</p>
-                        <a href="/editarEmpresa/{{$empresa->id}}" class="btn btn-success">Editar Empresa</a>
-                      </div>
-                    </div>
-                  </div>
-                @endif
-        </div>
+          </div>
+      @endif
+      <div class="col-sm-4">
+          <div class="card card-style">
+            <div class="card-body">
+              <h5 class="card-title">Horarios Matriculados</h5>
+              <p class="card-text">Ver los Horarios Matrículados.</p>
+              <a href="/horariosMatriculados/{{Auth::user()->id}}" class="btn btn-success">Horarios Matrículados</a>
+            </div>
+          </div>
       </div>
+      @if($propuesta)
+      <div class="col-sm-4">
+          <div class="card card-style">
+            <div class="card-body">
+              <h5 class="card-title">Editar Propuesta Ingresada</h5>
+              <p class="card-text">Editar la Propuesta de Empresa Ingresada.</p>
+              <a href="/editarPropuesta" class="btn btn-success">Editar Propuesta</a>
+            </div>
+          </div>
+      </div>
+      @endif
+      @if($empresa && $empresa->count() > 0)
+          <div class="col-sm-4">
+            <div class="card card-style">
+                <div class="card-body">
+                    <h5 class="card-title">Editar Empresa Ingresada</h5>
+                    <p class="card-text">Editar la Empresa Ingresada.</p>
+                    <a href="/editarEmpresa/{{$empresa->id}}" class="btn btn-success">Editar Empresa</a>
+                </div>
+              </div>
+            </div>
+      @endif
+    </div>
+</div>
       <div class="container panel panel-default">
           <h3 class="card-title">Guías para proyectos Pre Aprobados</h3>
           <div class="row main-panel">
