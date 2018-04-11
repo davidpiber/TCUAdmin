@@ -171,6 +171,11 @@ class HorarioController extends Controller
 
         if($idUsuarioHorario){
             $usuarioHorarioaBorrar = UsuarioHorario::find($idUsuarioHorario);
+
+            //actualizamos la cantidad de instructores del horario
+            $horario = Horario::find($usuarioHorarioaBorrar->id_horario);
+            $horario->cantidad_instructores = $horario->cantidad_instructores + 1;
+            $horario->save();
             $usuarioHorarioaBorrar->Delete();
         }
         $request->session()->flash('success', 'Matricula Eliminada con Exito');
