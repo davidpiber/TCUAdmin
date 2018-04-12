@@ -179,7 +179,7 @@ class ProyectoPreaprobadoController extends Controller
         $proyectoAGuardar->activo = $request['activo'] && $request['activo']== 'true' ? true : false;
 
         $proyectoAGuardar->save();
-        $request->session()->flash('success', 'Proyecto Actulizado con Exito');
+        $request->session()->flash('success', 'Proyecto Actualizado con Exito');
         return redirect()->route('proyectosPreaprobados');
     }
 
