@@ -52,7 +52,7 @@
         <div class="col-sm-6">
           <div class="card card-style">
             <div class="card-body">
-              <h5 class="card-title">Ingesar Proyecto Pre Aprobado</h5>
+              <h5 class="card-title">Ingresar Proyecto Pre Aprobado</h5>
               <p class="card-text">Ingresar un Proyecto Pre Aprobado.</p>
               <a href="/ingresarProyectoPreaprobado" class="btn btn-success">Ingresar Proyecto Pre Aprobado</a>
             </div>
