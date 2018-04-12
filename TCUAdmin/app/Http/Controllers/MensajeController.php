@@ -90,7 +90,7 @@ class MensajeController extends Controller {
         $mensaje->id_usuario_envia = $request['id_usuario_envia'];
         $mensaje->visto = false;
         $mensaje->save();
-
+        $request->session()->flash('success', 'Mensaje Editado con Exito');
         return redirect()->route('mensajes');
     }
 

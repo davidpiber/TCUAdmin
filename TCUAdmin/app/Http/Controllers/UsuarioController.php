@@ -137,7 +137,7 @@ class UsuarioController extends Controller {
             $errors = new MessageBag();
 
             // add your error messages:
-            $errors->add('user or passowrd equivovado', 'Su usuario o contrasena no es valido');
+            $errors->add('user or passowrd equivovado', 'Su Usuario o Contraseña no es valido');
 
             return view('login-container')->withErrors($errors);
         }
