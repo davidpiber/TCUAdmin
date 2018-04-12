@@ -1,5 +1,5 @@
 <div class="col-md-6">
-        <h3>Enviar Mensaje</h3>
+        <h3>Editar Mensaje</h3>
             <div>
                 @if (count($errors) > 0)
                     <div class="alert alert-danger">
